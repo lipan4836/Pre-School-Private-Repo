@@ -37,6 +37,8 @@ h2 {
   letter-spacing: 2px;
   text-transform: capitalize;
   position: relative;
+  margin: 0 auto 61px auto;
+  text-align: center;
 }
 
 h2::before {
@@ -47,6 +49,26 @@ h2::before {
   position: absolute;
   left: 25%;
   top: 60px;
+}
+
+h3 {
+  font-family: 'Forum';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  position: relative;
+}
+
+h3::after {
+  content: "";
+  height: 1px;
+  width: 60px;
+  background: #BB945F;
+  position: absolute;
+  bottom: 1px;
+  left: 0;
 }
 
 a {
@@ -94,7 +116,6 @@ ul {
   min-height: 600px;
   background-image: url(assets/img/welcome-bg.jpg);
   background-position: center;
-  background-origin: border-box;
   background-size: cover;
   position: relative;
 }
@@ -133,7 +154,6 @@ ul {
 }
 
 .about-text {
-  margin-top: 61px;
   font-weight: 400;
   line-height: 40px;
   margin-bottom: 20px;
@@ -143,7 +163,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .carousel-gal {
@@ -154,13 +174,170 @@ ul {
 .carousel-pags {
   display: flex;
   justify-content: center;
-  gap: 10px;
 }
 
 .carousel-pag {
   width: 26px;
   height: 26px;
-  background: #0C0C0E;
   border-radius: 50%;
   padding: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-pag::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: #0C0C0E;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.active::after {
+  background: #BB945F;
+}
+
+/* --- favorites styles --- */
+
+.seasons-text {
+  font-weight: 700;
+  margin-left: 20px;
+}
+
+label {
+  margin: 40px 90px 40px 0;
+  padding: 5px;
+}
+
+.season-radio {
+  width: 17px;
+  height: 17px;
+  accent-color: #000000;
+  margin-right: 15px;
+}
+
+.season-radio:checked {
+  font-weight: 700;
+}
+
+.seasons-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 15px;
+}
+
+.books-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 20px 20px 20px;
+}
+
+.books-spring,
+.books-summer,
+.books-autumn {
+  display: none;
+}
+
+.book-item {
+  position: relative;
+  width: 590px;
+  height: 555px;
+  display: flex;
+  gap: 35px;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.book-item::after {
+  content: "";
+  width: 550px;
+  height: 555px;
+  border: 1px solid #000;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.book-feats {
+  width: 355px;
+  height: 555px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  /* padding-left: 20px;
+  padding-top: 15px; */
+  padding: 15px 0 15px 20px;
+}
+
+.book-cover {
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+}
+
+.book-title, .book-author {
+  width: 550px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.book-title {
+  text-transform: uppercase;
+}
+
+.book-description {
+  width: 355px;
+  max-height: 320px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.buy-btn {
+  text-align: center;
+  width: 75px;
+  height: 30px;
+  color: #0C0C0E;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 9px 27px;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  border-color: #BB945F;
+  background: #BB945F;
+}
+
+.own-btn {
+  text-align: center;
+  width: 75px;
+  height: 30px;
+  color: #0C0C0E;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 9px 27px;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+.own-btn:disabled {
+  color: #BB945F;
+  border-color: #BB945F;
 }
