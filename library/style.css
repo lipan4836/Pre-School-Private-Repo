@@ -37,18 +37,15 @@ h2 {
   letter-spacing: 2px;
   text-transform: capitalize;
   position: relative;
-  margin: 0 auto 61px auto;
+  margin: 0 auto 20px auto;
   text-align: center;
 }
 
-h2::before {
-  content: "";
-  height: 1px;
+.underline {
   width: 50px;
-  background-color: #0C0C0E;
-  position: absolute;
-  left: 25%;
-  top: 60px;
+  height: 1px;
+  margin: 0 auto 40px auto;
+  background: #0C0C0E;
 }
 
 h3 {
@@ -69,6 +66,15 @@ h3::after {
   position: absolute;
   bottom: 1px;
   left: 0;
+}
+
+h4 {
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: #BB945F;
 }
 
 a {
@@ -270,8 +276,6 @@ label {
   align-items: flex-start;
   justify-content: space-between;
   gap: 15px;
-  /* padding-left: 20px;
-  padding-top: 15px; */
   padding: 15px 0 15px 20px;
 }
 
@@ -281,7 +285,8 @@ label {
   right: 0;
 }
 
-.book-title, .book-author {
+.book-title,
+.book-author {
   width: 550px;
   font-size: 15px;
   font-weight: 700;
@@ -313,7 +318,7 @@ label {
   font-weight: 700;
   letter-spacing: 1px;
   padding: 9px 27px;
-  transition: all .5s;
+  transition: all 0.5s;
   cursor: pointer;
 }
 
@@ -333,11 +338,129 @@ label {
   font-weight: 700;
   letter-spacing: 1px;
   padding: 9px 27px;
-  transition: all .5s;
+  transition: all 0.5s;
   cursor: pointer;
 }
 
 .own-btn:disabled {
   color: #BB945F;
   border-color: #BB945F;
+}
+
+/* --- coffee shop styles --- */
+
+.coffee-shop-wrap {
+  max-width: 1400px;
+  margin: 20px 20px 40px 20px;
+}
+
+.menu-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-drinks-wrap,
+.menu-desserts-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.menu-drinks-wrap {
+  width: 438px;
+}
+
+.menu-desserts-wrap {
+  width: 482px;
+  align-items: flex-end;
+}
+
+.menu-drink-item {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.menu-dessert-item {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.shop-text {
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.drink-item,
+.dessert-item {
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.drink-item {
+  width: 205px;
+}
+
+.price {
+  font-family: Forum;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+/* --- contacts styles --- */
+
+.contacts-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts-list {
+  width: 505px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.map {
+  width: 696px;
+  height: 414px;
+}
+
+.inquiries,
+.employee {
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.inquiries {
+  margin-bottom: 20px;
+}
+
+.contact-person {
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.contact-tel {
+  color: #000;
+  transition: 0.5s;
+}
+
+.contact-tel:hover {
+  color: #BB945F;
 }

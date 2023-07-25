@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+  <link rel="manifest" href="assets/ico/site.webmanifest">
 </head>
 <body> 
   <header class="header container">
@@ -41,6 +45,7 @@
     <section class="about section" id="about">
       <div class="about-wrap">
         <h2>about</h2>
+        <div class="underline"></div>
         <p class="about-text">
           The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside 
         </p>
@@ -61,6 +66,7 @@
     <section class="favorites section" id="favorites">
       <div class="favorites-wrap">
         <h2>Favorites</h2>
+        <div class="underline"></div>
         <p class="seasons-text">Pick favorites of season</p>
         <form class="seasons-list">
           <!-- НЕ СДЕЛАЛ СИТИЛИ КНОПОК РАДИО!!! -->
@@ -299,8 +305,107 @@
         </div>
       </div>
     </section>
-    <section class="coffee-shop section" id="coffee-shop"></section>
-    <section class="contacts section" id="contacts"></section>
+    <section class="coffee-shop section" id="coffee-shop">
+      <div class="coffee-shop-wrap">
+        <h2>Coffee Shop</h2>
+        <div class="underline"></div>
+        <p class="shop-text">
+          In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. 
+you can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.
+        </p>
+        <div class="menu-wrap">
+          <div class="menu-drinks-wrap">
+            <h4>Coffee &amp; Tea</h4>
+            <div class="menu-drink-item">
+              <p class="drink-item">Cold Brew Coffee</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$3</p>
+            </div>
+            <div class="menu-drink-item">
+              <p class="drink-item">French Press Pot</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$5</p>
+            </div>
+            <div class="menu-drink-item">
+              <p class="drink-item">Espresso</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$2</p>
+            </div>
+            <div class="menu-drink-item">
+              <p class="drink-item">Cappuccino</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$4</p>
+            </div>
+            <div class="menu-drink-item">
+              <p class="drink-item">Hot tea</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$2</p>
+            </div>
+            <div class="menu-drink-item">
+              <p class="drink-item">Cold tea</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$2</p>
+            </div>
+          </div>
+          <div class="menu-desserts-wrap">
+            <h4>Desserts &amp; Cakes  </h4>
+            <div class="menu-dessert-item">
+              <p class="dessert-item">Forest Gateau</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$16</p>
+            </div>
+            <div class="menu-dessert-item">
+              <p class="dessert-item">Blue Moon</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$16</p>
+            </div>
+            <div class="menu-dessert-item">
+              <p class="dessert-item">Truffle Cake</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$15</p>
+            </div>
+            <div class="menu-dessert-item">
+              <p class="dessert-item">Chocolate Cake</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$18</p>
+            </div>
+            <div class="menu-dessert-item">
+              <p class="dessert-item">Poet&rsquo;s Dream Cake</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$16</p>
+            </div>
+            <div class="menu-dessert-item">
+              <p class="dessert-item">Pineapple Cake</p>
+              <hr width="100px" size="1px" color="#bb945f" />
+              <p class="price">$14</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contacts section" id="contacts">
+      <div class="contacts-wrap">
+        <h2>Our Contacts</h2>
+        <div class="underline"></div>
+        <div class="contacts-info">
+          <div class="contacts-list">
+            <div class="contact-item">
+              <p class="inquiries">For all Library inquiries:</p>
+              <p class="contact-person">Please call <a class="contact-tel" href="tel:+16177302370">(617) 730-2370</a></p>
+              <p class="contact-person">For TTY service, please call <a class="contact-tel" href="tel:+16177302370">(617) 730-2370</a></p>
+              <p class="contact-person">Putterham Library: <a class="contact-tel" href="tel:+16177302385">(617) 730-2385</a></p>
+            </div>
+            <div class="contact-item">
+              <p class="employee">Senior Staff</p>
+              <p class="contact-person">Library Director: Amanda Hirst</p>
+            </div>
+          </div>
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.0159770424384!2d-73.99387252334054!3d40.6956457713961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b649b8c3%3A0x6342a2291cea2e!2zMjg2IENhZG1hbiBQbGF6YSBXLCBCcm9va2x5biwgTlkgMTEyMDEsINCh0KjQkA!5e0!3m2!1sru!2sru!4v1690303113516!5m2!1sru!2sru" width="696" height="414" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="library-card section" id="library-card"></section>
   </main>
   <footer class="footer container">
