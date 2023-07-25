@@ -77,8 +77,30 @@ h4 {
   color: #BB945F;
 }
 
+h5.find {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+}
+
+h5.get {
+  font-family: Forum;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+}
+
 a {
   text-decoration: none;
+  transition: all 0.5s;
+}
+
+a:hover,
+.footer-link:hover {
+  color: #BB945F;
 }
 
 /* --- header styles --- */
@@ -96,20 +118,16 @@ header {
   margin:auto;
 }
 
-nav {
-  
+.linkbar {
   display: flex;
   align-items: center;
   gap: 40px;
 }
 
 .nav-list {
+  list-style-type: none;
   display: flex;
   gap: 30px;
-}
-
-ul {
-  list-style-type: none;
 }
 
 .nav-link {
@@ -414,6 +432,10 @@ label {
 
 /* --- contacts styles --- */
 
+.contacts-wrap {
+  padding: 20px 20px 40px;
+}
+
 .contacts-info {
   display: flex;
   justify-content: space-between;
@@ -463,4 +485,232 @@ label {
 
 .contact-tel:hover {
   color: #BB945F;
+}
+
+/* --- cards styles --- */
+
+.library-card > h2 {
+  margin-top: 20px;
+}
+
+.card-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 41px;
+}
+
+.find-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.card-border {
+  width: 600px;
+  height: 386px;
+  border: 3px solid #BB945F;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 17px 17px 30px 17px;
+}
+
+.card-form {
+  width: 560px;
+  height: 272px;
+  background: #BB945F;
+  padding: 20px 20px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-form > form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-text {
+  font-family: Forum;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+}
+
+.form-input-label {
+  margin: 0;
+  padding: 0;
+}
+
+.form-input {
+  width: 520px;
+  height: 66px;
+  border-radius: 10px;
+  font-family: Forum;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  padding: 8px 0 8px 20px;
+}
+
+.form-input::placeholder {
+  font-family: Forum;
+  color: #8e8e8e;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+}
+
+.btn-check {
+  width: 242px;
+  height: 44px;
+  color: #0C0C0E;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  padding: 10px 40px;
+  background: transparent;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.btn-check:hover {
+  border-color: #BB945F;
+  background: #BB945F;
+}
+
+.get-card {
+  width: 456px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.get-account {
+  display: flex;
+  gap: 20px;
+}
+
+.get-text {
+  text-align: right;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.4px;
+}
+
+.btn-account {
+  width: 75px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  background: transparent;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.btn-account:hover {
+  border-color: #BB945F;
+  background: #BB945F;
+}
+
+/* --- footer styles --- */
+
+footer {
+  background: #0c0c0e;
+}
+
+.footer-wrap {
+  padding: 20px 20px 44px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.footer-block {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.socials-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-left {
+  width: 229px;
+  gap: 18px;
+}
+
+.footer-right {
+  width: 149px;
+  text-align: right;
+  gap: 10px;
+}
+
+address {
+  font-style: normal;
+}
+
+.address-link {
+  color: #FFF;
+}
+
+.social {
+  width: 24px;
+  height: 24px;
+}
+
+.social-logo {
+  transition: all 0.5s;
+}
+
+.social-logo:hover {
+  transform: scale(1.8);
+}
+
+.footer-author {
+  margin-top: 44px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.year,
+.footer-link {
+  color: #FFF;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+.footer-link {
+  transition: all 0.5s;
+}
+
+.cntr {
+  padding-left: 112px;
 }

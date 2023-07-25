@@ -18,19 +18,20 @@
   <header class="header container">
     <div class="header-wrap">
       <h1>Brooklyn Public Library</h1>
-      <nav>
-        <ul class="nav-list">
-          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
-          <li class="nav-item"><a href="#coffee-shop" class="nav-link">Coffee shop</a></li>
-          <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
-          <li class="nav-item"><a href="#library-card" class="nav-link">Library Card</a></li>
-        </ul>
-        <!-- ------------------------------------УБРАТЬ ИЗ НАВИГАЦИИ!!!! -->
+      <div class="linkbar">
+        <nav>
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
+            <li class="nav-item"><a href="#coffee-shop" class="nav-link">Coffee shop</a></li>
+            <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+            <li class="nav-item"><a href="#library-card" class="nav-link">Library Card</a></li>
+          </ul>
+        </nav>
         <a href="#" class="profile-btn">
           <img src="assets/svg/icon_profile.png" alt="profile button">
         </a>
-      </nav>
+      </div>
     </div>
   </header>
   <main class="main container">
@@ -397,7 +398,7 @@ you can get a favorite book and read in coffee shop. Our barista to cook you bes
             </div>
             <div class="contact-item">
               <p class="employee">Senior Staff</p>
-              <p class="contact-person">Library Director: Amanda Hirst</p>
+              <p class="contact-person">Library Director: <a href="mailto:AmandaHirst@gmail.com" class="contact-tel">Amanda Hirst</a></p>
             </div>
           </div>
           <div class="map">
@@ -406,10 +407,73 @@ you can get a favorite book and read in coffee shop. Our barista to cook you bes
         </div>
       </div>
     </section>
-    <section class="library-card section" id="library-card"></section>
+    <section class="library-card section" id="library-card">
+      <h2>Digital Library Cards</h2>
+      <div class="underline"></div>
+      <div class="card-wrap">
+        <div class="find-card">
+          <h5 class="find">Find your Library card</h5>
+          <div class="card-border">
+            <div class="card-body">
+              <div class="card-form">
+                <p class="form-text">Brooklyn Public Library</p>
+                <form action="">
+                  <label for="" class="form-input-label">
+                    <input class="form-input" type="text" required pattern="^[a-zA-Z]+$" inputmode="verbatim" placeholder="Reader's name">
+                  </label>
+                  <label for="" class="form-input-label">
+                    <input class="form-input" type="text" required pattern="^[a-zA-Z]+$" inputmode="verbatim" placeholder="Card number">
+                  </label>
+                </form>
+              </div>
+              <button class="btn-check">Check the card</button>
+            </div>
+          </div>
+        </div>
+        <div class="get-card">
+          <h5 class="get">Get a reader card</h5>
+          <p class="get-text">
+            You will be able to see a reader card after logging into account or you can register a new account
+          </p>
+          <div class="get-account">
+            <button class="btn-account">Sign Up</button>
+            <button class="btn-account">Log in</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="footer container">
-
+    <div class="footer-wrap">
+      <div class="footer-links">
+        <div class="footer-block footer-left">
+          <address class="footer-address">
+            <a class="address-link" href="https://www.google.com/maps/place/286+Cadman+Plaza+W,+Brooklyn,+NY+11201,+США/@40.6954309,-73.9916825,18.33z/data=!4m6!3m5!1s0x89c25a49b649b8c3:0x6342a2291cea2e!8m2!3d40.6956458!4d-73.9912976!16s%2Fg%2F11s2lgz8ns?hl=ru&entry=ttu" target="_blank">286 Cadman Plaza, New York, NY 11238, United States</a>
+          </address>
+          <div class="socials-links">
+            <a class="social twitter" href="https://twitter.com/brklib" target="_blank">
+              <img class="social-logo" src="assets/svg/u_twitter-alt.svg" alt="twitter logo link">
+            </a>
+            <a class="social instagram" href="https://www.instagram.com/brklib/" target="_blank">
+              <img class="social-logo" src="assets/svg/u_instagram.svg" alt="instagram logo link">
+            </a>
+            <a class="social facebook" href="https://www.facebook.com/brklib/" target="_blank">
+              <img class="social-logo" src="assets/svg/u_facebook-f.svg" alt="facebook logo link">
+            </a>
+          </div>
+        </div>
+        <div class="footer-block footer-right">
+          <p class="schedule">Mon - Fri<br>08:00 am - 07:00 pm</p>
+          <p class="schedule">Sat - Sun<br>10:00 am - 06:00 pm</p>
+        </div>
+      </div>
+      <hr width="100%" size="1px" color="#fff">
+      <div class="footer-author">
+        <p class="year">2023</p>
+        <a class="footer-link cntr" href="https://rs.school/js-stage0/" target="_blank">The Rolling Scopes School</a>
+        <a class="footer-link" href="https://github.com/lipan4836" target="_blank">Anton Dmitriev</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
