@@ -174,7 +174,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  margin: 20px 0 25px;
 }
 
 .about-text {
@@ -186,13 +186,14 @@ header {
 .about-carousel {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 35px;
   margin-bottom: 30px;
 }
 
 .carousel-gal {
   display: flex;
   gap: 25px;
+  margin-bottom: 0px;
 }
 
 .carousel-pags {
@@ -227,11 +228,12 @@ header {
 
 .seasons-text {
   font-weight: 700;
-  margin-left: 20px;
+  margin: 0 0 35px 20px;
+
 }
 
 label {
-  margin: 40px 90px 40px 0;
+  /* margin-right: 77px; */
   padding: 5px;
 }
 
@@ -239,18 +241,27 @@ label {
   width: 17px;
   height: 17px;
   accent-color: #000000;
-  margin-right: 15px;
+  margin-right: 17px;
+  transform: translateY(3px);
 }
 
-.season-radio:checked {
+.span-radio {
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.season-radio:checked + .span-radio {
   font-weight: 700;
 }
 
 .seasons-list {
+  width: 712px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  margin-left: 15px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 35px 15px;
 }
 
 .books-wrap {
@@ -318,7 +329,7 @@ label {
 
 .book-description {
   width: 355px;
-  max-height: 320px;
+  height: 320px;
   font-size: 15px;
   font-weight: 400;
   line-height: 40px;
@@ -481,6 +492,10 @@ label {
 .contact-tel {
   color: #000;
   transition: 0.5s;
+}
+
+.mail {
+  font-weight: 700;
 }
 
 .contact-tel:hover {
