@@ -111,11 +111,11 @@ header {
 }
 
 .header-wrap {
-  max-width: 1400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin:auto;
+  padding: 0 20px;
+  background: #0C0C0E;
 }
 
 .linkbar {
@@ -139,7 +139,7 @@ header {
 .welcome {
   min-height: 600px;
   background-image: url(assets/img/welcome-bg.jpg);
-  background-position: center;
+  background-position: center center;
   background-size: cover;
   position: relative;
 }
@@ -166,6 +166,7 @@ header {
   line-height: 50px;
   letter-spacing: 3px;
   text-transform: uppercase;
+  margin: 0;
 }
 
 /* --- about styles --- */
@@ -232,36 +233,75 @@ header {
 
 }
 
-label {
-  /* margin-right: 77px; */
+.seasons-list {
+  display: flex;
+  gap: 79px;
+  width: 695px;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-bottom: 35px;
+}
+
+.radio-group {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.radio {
+  display: block;
+  max-width: 107px;
+  width: 100%;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  position: relative;
+  padding-left: 36px;
+  cursor: pointer;
+}
+
+.radio input[type="radio"] {
+  display: none;
+}
+
+.radio .radio-mark {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 5px;
   padding: 5px;
 }
 
-.season-radio {
-  width: 17px;
-  height: 17px;
-  accent-color: #000000;
-  margin-right: 17px;
-  transform: translateY(3px);
-}
-
-.span-radio {
-  font-style: normal;
-  font-weight: 400;
+.radio-text {
+  max-width: 130px;
   line-height: normal;
+  padding: 5px;
 }
 
-.season-radio:checked + .span-radio {
+.radio .radio-mark::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: #000;
+  display: block;
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  transform: translate(-50%,-50%) scale(0);
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+}
+
+.radio input[type="radio"]:checked ~ .radio-mark::after {
+  transform: translate(-50%,-50%) scale(1);
+}
+
+.radio input[type="radio"]:checked ~ .radio-text {
   font-weight: 700;
-}
-
-.seasons-list {
-  width: 712px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 0 35px 15px;
+  line-height: normal;
 }
 
 .books-wrap {
@@ -334,6 +374,7 @@ label {
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
+  text-transform: capitalize;
 }
 
 .buy-btn {
@@ -349,6 +390,7 @@ label {
   padding: 9px 27px;
   transition: all 0.5s;
   cursor: pointer;
+  background: transparent;
 }
 
 .buy-btn:hover {
@@ -377,6 +419,12 @@ label {
 }
 
 /* --- coffee shop styles --- */
+
+.hr-menu {
+  width: 100px;
+  border: none;
+  border-bottom: 1px solid #BB945F;
+}
 
 .coffee-shop-wrap {
   max-width: 1400px;
@@ -444,7 +492,7 @@ label {
 /* --- contacts styles --- */
 
 .contacts-wrap {
-  padding: 20px 20px 40px;
+  padding: 20px 20px 60px;
 }
 
 .contacts-info {
@@ -648,12 +696,15 @@ label {
 
 /* --- footer styles --- */
 
-footer {
-  background: #0c0c0e;
+.hr-footer {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #fff;
 }
 
 .footer-wrap {
   padding: 20px 20px 44px;
+  background: #0c0c0e;
 }
 
 .footer-links {
@@ -672,6 +723,7 @@ footer {
 }
 
 .socials-links {
+  list-style-type: none;
   display: flex;
   gap: 15px;
 }

@@ -28,19 +28,21 @@
             <li class="nav-item"><a href="#library-card" class="nav-link">Library Card</a></li>
           </ul>
         </nav>
-        <a href="#" class="profile-btn">
-          <img src="assets/svg/icon_profile.png" alt="profile button">
+        <a class="profile-btn" href="#">
+          <img class="profile-btn-ico" src="assets/svg/icon_profile.svg" alt="profile button">
         </a>
       </div>
     </div>
   </header>
   <main class="main container">
     <section class="welcome section" id="welcome">
-      <div class="overlay"></div>
-      <div class="welcome-label">
-        <p class="welcome-text">
-          welcome <br> to the brooklyn library
-        </p>
+      <div class="welcome-wrap container">
+        <div class="overlay"></div>
+        <div class="welcome-label">
+          <h2 class="welcome-text">
+            welcome&nbsp; <br> to the brooklyn library
+          </h2>
+        </div>
       </div>
     </section>
     <section class="about section" id="about">
@@ -65,31 +67,42 @@
       </div>
     </section>
     <section class="favorites section" id="favorites">
-      <div class="favorites-wrap">
+      <div class="favorites-wrap container">
         <h2>Favorites</h2>
         <div class="underline"></div>
         <p class="seasons-text">Pick favorites of season</p>
-        <form class="seasons-list">
-          <!-- НЕ СДЕЛАЛ СИТИЛИ КНОПОК РАДИО!!! -->
-          <label>
-            <input class="season-radio" type="radio" value="winter" name="seasons" checked>
-            <span class="span-radio">Winter</span>
-          </label>
-          <label>
-            <input class="season-radio" type="radio" value="spring" name="seasons">
-            <span class="span-radio">Spring</span>
-          </label>
-          <label>
-            <input class="season-radio" type="radio" value="summer" name="seasons">
-            <span class="span-radio">Summer</span>
-          </label>
-          <label>
-            <input class="season-radio" type="radio" value="autumn" name="seasons">
-            <span class="span-radio">Autumn</span>
-          </label>
-        </form>
+        <div class="seasons-list">
+          <div class="radio-group">
+            <label class="radio">
+              <input type="radio" value="winter" name="seasons">
+              <span class="radio-text">Winter</span>
+              <span class="radio-mark"></span>
+            </label>
+          </div>
+          <div class="radio-group">
+            <label class="radio">
+              <input type="radio" value="spring" name="seasons">
+              <span class="radio-text">Spring</span>
+              <span class="radio-mark"></span>
+            </label>
+          </div>
+          <div class="radio-group">
+            <label class="radio">
+              <input type="radio" value="summer" name="seasons">
+              <span class="radio-text">Summer</span>
+              <span class="radio-mark"></span>
+            </label>
+          </div>
+          <div class="radio-group">
+            <label class="radio">
+              <input type="radio" value="autumn" name="seasons">
+              <span class="radio-text">Autumn</span>
+              <span class="radio-mark"></span>
+            </label>
+          </div>
+        </div>
         <div class="books-wrap books-winter">
-          <div class="book-item">
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">The Book Eaters</span><br>By Sunyi Dean</p>
@@ -101,8 +114,8 @@
             <div class="book-cover">
               <img src="assets/img/book-w-01.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Cackle</span><br>By Rachel Harrison</p>
@@ -114,8 +127,8 @@
             <div class="book-cover">
               <img src="assets/img/book-w-02.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Dante: Poet of the Secular World</span><br>By Erich Auerbach</p>
@@ -127,8 +140,8 @@
             <div class="book-cover">
               <img src="assets/img/book-w-03.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">The Last Queen</span><br>By Clive Irving</p>
@@ -140,10 +153,10 @@
             <div class="book-cover">
               <img src="assets/img/book-w-04.jpg" alt="book cover">
             </div>
-          </div>
+          </article>
         </div>
         <div class="books-wrap books-spring">
-          <div class="book-item">
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">The Body</span><br>By Stephen King</p>
@@ -155,8 +168,8 @@
             <div class="book-cover">
               <img src="assets/img/book-sp-01.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Carry: A Memoir of Survival on Stolen Land</span><br>By Toni Jenson</p>
@@ -168,8 +181,8 @@
             <div class="book-cover">
               <img src="assets/img/book-sp-02.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Days of Distraction</span><br>By Alexandra Chang</p>
@@ -181,8 +194,8 @@
             <div class="book-cover">
               <img src="assets/img/book-sp-03.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Dominicana</span><br>By Angie Cruz</p>
@@ -194,10 +207,10 @@
             <div class="book-cover">
               <img src="assets/img/book-sp-04.jpg" alt="book cover">
             </div>
-          </div>
+          </article>
         </div>
         <div class="books-wrap books-summer">
-          <div class="book-item">
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Crude: A Memoir</span><br>By Pablo Fajardo &amp; ​​Sophie Tardy-Joubert</p>
@@ -209,8 +222,8 @@
             <div class="book-cover">
               <img src="assets/img/book-sum-01.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Let My People Go Surfing</span><br>By Yvon Chouinard</p>
@@ -222,8 +235,8 @@
             <div class="book-cover">
               <img src="assets/img/book-sum-02.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">The Octopus Museum: Poems</span><br>By Brenda Shaughnessy</p>
@@ -235,8 +248,8 @@
             <div class="book-cover">
               <img src="assets/img/book-sum-03.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Shark Dialogues: A Novel</span><br>By Kiana Davenport</p>
@@ -248,10 +261,10 @@
             <div class="book-cover">
               <img src="assets/img/book-sum-04.jpg" alt="book cover">
             </div>
-          </div>
+          </article>
         </div>
         <div class="books-wrap books-autumn">
-          <div class="book-item">
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Casual Conversation</span><br>By Renia White</p>
@@ -263,8 +276,8 @@
             <div class="book-cover">
               <img src="assets/img/book-au-01.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">The Great Fire</span><br>By Lou Ureneck</p>
@@ -276,8 +289,8 @@
             <div class="book-cover">
               <img src="assets/img/book-au-02.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Rickey: The Life and Legend</span><br>By Howard Bryant</p>
@@ -289,8 +302,8 @@
             <div class="book-cover">
               <img src="assets/img/book-au-03.jpg" alt="book cover">
             </div>
-          </div>
-          <div class="book-item">
+          </article>
+          <article class="book-item">
             <div class="book-feats ">
               <h3>Staff Picks</h3>
               <p class="book-author"><span class="book-title">Slug: And Other Stories</span><br>By Megan Milks</p>
@@ -302,12 +315,12 @@
             <div class="book-cover">
               <img src="assets/img/book-au-04.jpg" alt="book cover">
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
     <section class="coffee-shop section" id="coffee-shop">
-      <div class="coffee-shop-wrap">
+      <div class="coffee-shop-wrap container">
         <h2>Coffee Shop</h2>
         <div class="underline"></div>
         <p class="shop-text">
@@ -319,32 +332,32 @@ you can get a favorite book and read in coffee shop. Our barista to cook you bes
             <h4>Coffee &amp; Tea</h4>
             <div class="menu-drink-item">
               <p class="drink-item">Cold Brew Coffee</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$3</p>
             </div>
             <div class="menu-drink-item">
               <p class="drink-item">French Press Pot</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$5</p>
             </div>
             <div class="menu-drink-item">
               <p class="drink-item">Espresso</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$2</p>
             </div>
             <div class="menu-drink-item">
               <p class="drink-item">Cappuccino</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$4</p>
             </div>
             <div class="menu-drink-item">
               <p class="drink-item">Hot tea</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$2</p>
             </div>
             <div class="menu-drink-item">
               <p class="drink-item">Cold tea</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$2</p>
             </div>
           </div>
@@ -352,32 +365,32 @@ you can get a favorite book and read in coffee shop. Our barista to cook you bes
             <h4>Desserts &amp; Cakes  </h4>
             <div class="menu-dessert-item">
               <p class="dessert-item">Forest Gateau</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$16</p>
             </div>
             <div class="menu-dessert-item">
               <p class="dessert-item">Blue Moon</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$16</p>
             </div>
             <div class="menu-dessert-item">
               <p class="dessert-item">Truffle Cake</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$15</p>
             </div>
             <div class="menu-dessert-item">
               <p class="dessert-item">Chocolate Cake</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$18</p>
             </div>
             <div class="menu-dessert-item">
               <p class="dessert-item">Poet&rsquo;s Dream Cake</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$16</p>
             </div>
             <div class="menu-dessert-item">
               <p class="dessert-item">Pineapple Cake</p>
-              <hr width="100px" size="1px" color="#bb945f" />
+              <hr class="hr-menu">
               <p class="price">$14</p>
             </div>
           </div>
@@ -385,7 +398,7 @@ you can get a favorite book and read in coffee shop. Our barista to cook you bes
       </div>
     </section>
     <section class="contacts section" id="contacts">
-      <div class="contacts-wrap">
+      <div class="contacts-wrap container">
         <h2>Our Contacts</h2>
         <div class="underline"></div>
         <div class="contacts-info">
@@ -408,72 +421,82 @@ you can get a favorite book and read in coffee shop. Our barista to cook you bes
       </div>
     </section>
     <section class="library-card section" id="library-card">
-      <h2>Digital Library Cards</h2>
-      <div class="underline"></div>
-      <div class="card-wrap">
-        <div class="find-card">
-          <h5 class="find">Find your Library card</h5>
-          <div class="card-border">
-            <div class="card-body">
-              <div class="card-form">
-                <p class="form-text">Brooklyn Public Library</p>
-                <form action="">
-                  <label for="" class="form-input-label">
-                    <input class="form-input" type="text" required pattern="^[a-zA-Z]+$" inputmode="verbatim" placeholder="Reader's name">
-                  </label>
-                  <label for="" class="form-input-label">
-                    <input class="form-input" type="text" required pattern="^[a-zA-Z]+$" inputmode="verbatim" placeholder="Card number">
-                  </label>
-                </form>
+      <div class="library-card-wrap container">
+        <h2>Digital Library Cards</h2>
+        <div class="underline"></div>
+        <div class="card-wrap">
+          <div class="find-card">
+            <h5 class="find">Find your Library card</h5>
+            <div class="card-border">
+              <div class="card-body">
+                <div class="card-form">
+                  <p class="form-text">Brooklyn Public Library</p>
+                  <form>
+                    <label class="form-input-label">
+                      <input class="form-input" type="text" required pattern="^[a-zA-Z]+$" placeholder="Reader's name">
+                    </label>
+                    <label class="form-input-label">
+                      <input class="form-input" type="text" required pattern="^[a-zA-Z]+$" placeholder="Card number">
+                    </label>
+                  </form>
+                </div>
+                <button class="btn-check">Check the card</button>
               </div>
-              <button class="btn-check">Check the card</button>
+            </div>
+          </div>
+          <div class="get-card">
+            <h5 class="get">Get a reader card</h5>
+            <p class="get-text">
+              You will be able to see a reader card after logging into account or you can register a new account
+            </p>
+            <div class="get-account">
+              <button class="btn-account">Sign Up</button>
+              <button class="btn-account">Log in</button>
             </div>
           </div>
         </div>
-        <div class="get-card">
-          <h5 class="get">Get a reader card</h5>
-          <p class="get-text">
-            You will be able to see a reader card after logging into account or you can register a new account
-          </p>
-          <div class="get-account">
-            <button class="btn-account">Sign Up</button>
-            <button class="btn-account">Log in</button>
-          </div>
-        </div>
       </div>
+      
     </section>
   </main>
-  <footer class="footer container">
-    <div class="footer-wrap">
+  <footer class="footer">
+    <div class="footer-wrap container">
       <div class="footer-links">
         <div class="footer-block footer-left">
           <address class="footer-address">
             <a class="address-link" href="https://www.google.com/maps/place/286+Cadman+Plaza+W,+Brooklyn,+NY+11201,+США/@40.6954309,-73.9916825,18.33z/data=!4m6!3m5!1s0x89c25a49b649b8c3:0x6342a2291cea2e!8m2!3d40.6956458!4d-73.9912976!16s%2Fg%2F11s2lgz8ns?hl=ru&entry=ttu" target="_blank">286 Cadman Plaza, New York, NY 11238, United States</a>
           </address>
-          <div class="socials-links">
-            <a class="social twitter" href="https://twitter.com/brklib" target="_blank">
-              <img class="social-logo" src="assets/svg/u_twitter-alt.svg" alt="twitter logo link">
-            </a>
-            <a class="social instagram" href="https://www.instagram.com/brklib/" target="_blank">
-              <img class="social-logo" src="assets/svg/u_instagram.svg" alt="instagram logo link">
-            </a>
-            <a class="social facebook" href="https://www.facebook.com/brklib/" target="_blank">
-              <img class="social-logo" src="assets/svg/u_facebook-f.svg" alt="facebook logo link">
-            </a>
-          </div>
+          <ul class="socials-links">
+            <li class="social-item">
+                <a class="social twitter" href="https://twitter.com/brklib" target="_blank">
+                <img class="social-logo" src="assets/svg/u_twitter-alt.svg" alt="twitter logo link">
+              </a>
+            </li>
+            <li class="social-item">
+                <a class="social instagram" href="https://www.instagram.com/brklib/" target="_blank">
+                <img class="social-logo" src="assets/svg/u_instagram.svg" alt="instagram logo link">
+              </a>
+            </li>
+            <li class="social-item">
+                <a class="social facebook" href="https://www.facebook.com/brklib/" target="_blank">
+                <img class="social-logo" src="assets/svg/u_facebook-f.svg" alt="facebook logo link">
+              </a>
+            </li>
+          </ul>
         </div>
         <div class="footer-block footer-right">
           <p class="schedule">Mon - Fri<br>08:00 am - 07:00 pm</p>
           <p class="schedule">Sat - Sun<br>10:00 am - 06:00 pm</p>
         </div>
       </div>
-      <hr width="100%" size="1px" color="#fff">
+      <hr class="hr-footer">
       <div class="footer-author">
-        <p class="year">2023</p>
+        <time class="year" datetime="2023-07">2023</time>
         <a class="footer-link cntr" href="https://rs.school/js-stage0/" target="_blank">The Rolling Scopes School</a>
         <a class="footer-link" href="https://github.com/lipan4836" target="_blank">Anton Dmitriev</a>
       </div>
     </div>
   </footer>
+  <script src="index.js"></script>
 </body>
 </html>
