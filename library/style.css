@@ -211,6 +211,7 @@ header {
   font-weight: 400;
   line-height: 40px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .about-carousel {
@@ -228,14 +229,23 @@ header {
   margin-bottom: 0px;
 }
 
+.carousel-gal-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
 .carousel-btn {
-  width: 18px;
-  height: 27px;
+  width: 24px;
+  height: 24px;
   display: none;
   cursor: pointer;
   border: none;
   background: transparent;
   transition: all 0.3s ease-in-out;
+  /* position: absolute; */
+  margin-top: 7%;
 }
 
 .carousel-btn:hover {
@@ -243,8 +253,8 @@ header {
 }
 
 .carousel-img {
-  width: 450px;
-  height: 560px;
+  max-width: 450px;
+  max-height: 560px;
 }
 
 .slide-4,
@@ -255,6 +265,11 @@ header {
 .carousel-pags {
   display: flex;
   justify-content: center;
+}
+
+.pag-4,
+.pag-5 {
+  display: none;
 }
 
 .carousel-pag {
@@ -572,7 +587,7 @@ header {
 }
 
 .map {
-  width: 696px;
+  max-width: 696px;
   height: 414px;
 }
 
@@ -842,51 +857,61 @@ address {
 
 /* ------------------ @media queries ------------------ */
 
-@media (max-width: 768px) {
-  .burger {
-    height: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .nav-desk {
+@media (max-width: 1402px) {
+  .slide-3 {
     display: none;
   }
-  .about-text {
-    text-align: center;
+  .pag-4 {
+    display: block;
   }
+}
+
+@media (max-width: 1240px) {
+  .contacts-info {
+    flex-direction: column;
+    gap: 100px;
+  }
+}
+
+@media (max-width: 1219px) {
+  .nav-link {
+    font-size: 14px;
+  }
+  .books-wrap {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 970px) {
+  .menu-wrap {
+    flex-direction: column;
+  }
+  .menu-desserts-wrap {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 927px) {
   .slide-2,
   .slide-3 {
     display: none;
   }
-  .carousel-gal-wrap {
+  .pag-5 {
+    display: block;
+  }
+  .carousel-gal {
+    justify-content: center;
     gap: 43px;
   }
   .carousel-btn {
     display: block;
   }
-  /* .about-wrap {
-    margin:0 auto  ;
-  } */
   .about-carousel {
-    width: 568px;
-    gap: 15px;
+    width: 614px;
+    gap: 20px;
   }
   .about-text {
     padding: 0 20px 0;
-  }
-  .books-wrap {
-    justify-content: center;
-  }
-  .menu-desserts-wrap {
-    margin-left: auto;
-  }
-  .contacts-info {
-    flex-direction: column;
-    gap: 100px;
-  }
-  .map {
-    margin: 0 auto 0;
   }
   .card-wrap {
     flex-direction: column;
@@ -900,14 +925,55 @@ address {
   }
   .get-text {
     text-align: center;
+    margin-top: 4px;
   }
   .get-account {
-    margin-top: 10px;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 850px) {
+  .nav-list{
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .burger {
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .nav-desk {
+    display: none;
+  }
+  .books-wrap {
+    justify-content: center;
+  }
+  .contacts-info {
+    flex-direction: column;
+    gap: 100px;
+  }
+  .map {
+    margin: 0 auto 0;
   }
   .cntr {
     padding-left: 56px;
   }
   .footer-links {
     margin-bottom: 29px;
+  }
+}
+
+@media (max-width: 767px) {
+  .seasons-list {
+    width: 150px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .map {
+    width: 580px;
+    overflow: hidden;
   }
 }
