@@ -15,6 +15,10 @@ body {
   font-size: 20px;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;
@@ -143,25 +147,19 @@ header {
   border: none;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
+  position: relative;
+  z-index: 15;
 }
 
-.profile-btn:hover {
+.profile-btn:hover:first-child {
   transform: scale(1.3);
-}
-
-.burger-line {
-  width: 45px;
-  height: 2px;
-  background: #FFF;
+  /* ---------------------------------------------------- ?????????? */
 }
 
 .burger {
-  height: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   display: none;
 }
+
 /* --- welcome styles --- */
 
 .welcome {
@@ -874,11 +872,76 @@ address {
 }
 
 @media (max-width: 1219px) {
-  .nav-link {
-    font-size: 14px;
-  }
   .books-wrap {
     justify-content: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-desk {
+    position: fixed;
+    width: 332px;
+    height: 570px;
+    padding: 100px 20px;
+    top: 0;
+    right: 0;
+    background: #000;
+    z-index: 10;
+    transform: translateX(100%);
+    transition: 0.3s all ease-in-out;
+  }
+  .nav-desk-active {
+    transform: translateX(0);
+  }
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    gap: 30px;
+  }
+  .burger {
+    width: 45px;
+    height: 20px;
+    display: block;
+    cursor: pointer;
+  }
+  .burger-line,
+  .burger::before,
+  .burger::after {
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    transition: 0.3s all ease-in-out;
+    background: #fff;
+  }
+  .burger::before,
+  .burger::after {
+    content: "";
+  }
+  .burger::before {
+    top: 0;
+  }
+  .burger::after {
+    bottom: 0;
+  }
+  .burger-line {
+    top: 50%;
+    transform: scale(1) translateY(-50%);
+  }
+    .nav-item {
+    line-height: 50px;
+  }
+  .burger-active span{
+    scale: 0;
+  }
+  .burger-active::before{
+    top: 50%;
+    transform: rotate(-45deg) translateY(-50%);
+  }
+  .burger-active::after{
+    bottom: 50%;
+    transform: rotate(45deg) translateY(50%);
   }
 }
 
@@ -932,23 +995,8 @@ address {
   }
 }
 
-@media (max-width: 850px) {
-  .nav-list{
-    gap: 10px;
-  }
-}
-
 @media (max-width: 768px) {
-  .burger {
-    height: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .nav-desk {
-    display: none;
-  }
-  .books-wrap {
+    .books-wrap {
     justify-content: center;
   }
   .contacts-info {

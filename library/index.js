@@ -1,26 +1,29 @@
-console.log('Самооценка - 100 баллов\n\nОтзыв по пунктам ТЗ:\n\nВыполненные пункты:\n1) Вёрстка валидная. ( +10 )\n2) `header`, `main`, `footer` ( +2 )\n3) Шесть элементов `section` (по количеству секций) ( +2 )\n4) Только один заголовок `h1`. ( +2 )\n5) Пять заголовков `h2` ( +2 )\n6) Один элемент `nav` ( +2 )\n7) Два списка ul > li > a (панель навигации, ссылки на соцсети в футере) ( +2 )\n8) Семь кнопок `button` ( +2 )\n9) Два инпута `input` ( +2 )\n10) Блок `header` ( +8 ).\n11) Секция `Welcome` ( +4 )\n12) Секция `About` ( +6 )\n13) Секция `Favorites` ( +8 )\n14) Секция `CoffeShop` ( +6 )\n15) Секция `Contacts` ( +6 ).\n16) Секция `LibraryCard` ( +8 )\n17) Блок `footer` ( +8 ) \n18) Для построения сетки используются флексы или гриды (display: flex... или display: grid...) ( +2 )\n19) При уменьшении масштаба страницы браузера вся вёрстка (контент и фоны) размещается по центру, а не сдвигается в сторону. Фон за рамками страницы может быть черным, белым или любого оттенка серого. ( +2 )\n20) Иконки добавлены в формате .svg. SVG может быть добавлен любым способом. Обращаем внимание на формат, а не на способ добавления ( +2 )\n21) Изображения добавлены в формате .jpg (.jpeg) или .png ( +2 )\n22) Есть favicon ( +2 )\n23) Плавная прокрутка по якорям ( +2 )\n24) В футере название ссылки Username заменено и ведет на GitHub студента ( +2 )\n25) В футере ссылка The Rolling Scopes School ведет на страницу курса https://rs.school/js-stage0/ ( +2 )\n26) Интерактивность элементов согласно макету. ( +2 )\n27) Обязательное требование к интерактивности: плавное изменение внешнего вида элемента при наведении и клике не влияет на соседние элементы ( +2 )');
-console.log('Теги, которые требовались по ТЗ:');
+console.log('тут будет самооценка');
 
-const tegs = [
-  'header',
-  'main',
-  'footer',
-  'section',
-  'nav',
-  'h1',
-  'h2',
-  'ul',
-  'li',
-  'a',
-  'form',
-  'label',
-  'input',
-  'button'
-];
+// burger menu
 
-let total = 0;
-tegs.forEach((teg) => {
-  const count = Array.from(document.querySelectorAll(teg)).length;
-  console.log(`${teg} : ${count}`);
-  if ( count > 0 ) total++;
+const burgerBtn = document.querySelector('.burger');
+const menu = document.querySelector('.nav-desk');
+const links = document.querySelector('.nav-list');
+
+document.addEventListener('click', (e) => {
+  const click = e.composedPath();
+
+  if (click.includes(burgerBtn)) {
+    burgerBtn.classList.toggle('burger-active');
+    menu.classList.toggle('nav-desk-active');
+    document.body.classList.toggle('lock');
+  };
+
+  if (click.includes(links)) {
+    burgerBtn.classList.toggle('burger-active');
+    menu.classList.toggle('nav-desk-active');
+    document.body.classList.toggle('lock');
+  };
+
+  if (!e.target.classList.contains('burger') && !e.target.closest('nav')) {
+    burgerBtn.classList.remove('burger-active');
+    menu.classList.remove('nav-desk-active');
+    document.body.classList.remove('lock');
+  };
 });
