@@ -151,9 +151,8 @@ header {
   z-index: 15;
 }
 
-.profile-btn:hover:first-child {
+.header-account:hover {
   transform: scale(1.3);
-  /* ---------------------------------------------------- ?????????? */
 }
 
 .burger {
@@ -177,7 +176,7 @@ header {
 }
 
 .welcome-label {
-  width: 600px;
+  max-width: 600px;
   padding: 35px 40px;
   background: #0C0C0E;
   position: absolute;
@@ -479,7 +478,6 @@ header {
   letter-spacing: 1px;
   padding: 9px 27px;
   transition: all 0.5s;
-  cursor: pointer;
 }
 
 .own-btn:disabled {
@@ -882,10 +880,10 @@ address {
     position: fixed;
     width: 332px;
     height: 570px;
-    padding: 100px 20px;
+    padding: 100px 100px;
     top: 0;
     right: 0;
-    background: #000;
+    background: #0C0C0E;
     z-index: 10;
     transform: translateX(100%);
     transition: 0.3s all ease-in-out;
@@ -929,7 +927,7 @@ address {
     top: 50%;
     transform: scale(1) translateY(-50%);
   }
-    .nav-item {
+  .nav-item {
     line-height: 50px;
   }
   .burger-active span{
