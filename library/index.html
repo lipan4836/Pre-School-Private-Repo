@@ -19,7 +19,7 @@
     <div class="header-wrap">
       <h1>Brooklyn Public Library</h1>
       <div class="linkbar">
-        <nav>
+        <nav class="nav-desk">
           <ul class="nav-list">
             <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
             <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
@@ -28,9 +28,12 @@
             <li class="nav-item"><a href="#library-card" class="nav-link">Library Card</a></li>
           </ul>
         </nav>
-        <a class="profile-btn" href="#">
+        <button class="profile-btn header-account">
           <img class="profile-btn-ico" src="assets/svg/icon_profile.svg" alt="profile button">
-        </a>
+        </button>
+        <button class="profile-btn burger">
+          <span class="burger-line"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -53,15 +56,27 @@
           The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside 
         </p>
         <div class="about-carousel">
-          <div class="carousel-gal">
-            <img src="assets/img/gal1.jpg" alt="brooklyn's library photo" class="carousel-img">
-            <img src="assets/img/gal2.jpg" alt="brooklyn's library photo" class="carousel-img">
-            <img src="assets/img/gal3.jpg" alt="brooklyn's library photo" class="carousel-img">
+          <div class="carousel-gal-wrap">
+            <button class="carousel-btn">
+              <img src="assets/svg/arrow-left.svg" alt="left button">
+            </button>
+            <div class="carousel-gal">
+              <img class="carousel-img slide-1" src="assets/img/gal1.jpg" alt="brooklyn's library photo" >
+              <img class="carousel-img slide-2" src="assets/img/gal2.jpg" alt="brooklyn's library photo" >
+              <img class="carousel-img slide-3" src="assets/img/gal3.jpg" alt="brooklyn's library photo" >
+              <img class="carousel-img slide-4" src="assets/img/gal4.jpg" alt="brooklyn's library photo" >
+              <img class="carousel-img slide-5" src="assets/img/gal5.jpg" alt="brooklyn's library photo" >
+            </div>
+            <button class="carousel-btn">
+              <img src="assets/svg/arrow-right.svg" alt="right button">
+            </button>
           </div>
           <div class="carousel-pags">
-            <div class="carousel-pag active"></div>
-            <div class="carousel-pag"></div>
-            <div class="carousel-pag"></div>
+            <div class="carousel-pag pag-1 active"></div>
+            <div class="carousel-pag pag-2"></div>
+            <div class="carousel-pag pag-3"></div>
+            <div class="carousel-pag pag-4"></div>
+            <div class="carousel-pag pag-5"></div>
           </div>
         </div>
       </div>
@@ -74,7 +89,7 @@
         <div class="seasons-list">
           <div class="radio-group">
             <label class="radio">
-              <input type="radio" value="winter" name="seasons">
+              <input type="radio" value="winter" name="seasons" checked>
               <span class="radio-text">Winter</span>
               <span class="radio-mark"></span>
             </label>
@@ -325,7 +340,7 @@
         <div class="underline"></div>
         <p class="shop-text">
           In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. 
-you can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.
+You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.
         </p>
         <div class="menu-wrap">
           <div class="menu-drinks-wrap">
@@ -456,7 +471,6 @@ you can get a favorite book and read in coffee shop. Our barista to cook you bes
           </div>
         </div>
       </div>
-      
     </section>
   </main>
   <footer class="footer">
