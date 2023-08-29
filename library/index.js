@@ -45,9 +45,9 @@ function changeSlide() {
   slides.style.transform = 'translateX(' + (currenSlide) * -475 + 'px)'
 }
 
-// paginators[currenSlide].disabled = true
 
-document.querySelectorAll('.carousel-pag').forEach(function(indicator, ind) {
+
+document.querySelectorAll('.carousel-pag').forEach((indicator, ind) => {
   indicator.addEventListener('click', () => {
     currenSlide = ind
     changeSlide()
@@ -65,12 +65,6 @@ rightArrow.addEventListener('click', () => {
   currenSlide = (currenSlide < 4) ? currenSlide + 1 : 4
   changeSlide()
   paginators.children[currenSlide].classList.add('pag-active')
-  paginators.children[currenSlide].style.cursor = 'default'
 })
 
-if (currenSlide === 0) {
-  leftArrow.style.cursor = 'default'
-  leftArrow.style.background = '#c1b2b2'
-} else {
-  leftArrow.style.background = 'transparent'
-}
+console.log('leftArrow :', leftArrow);
