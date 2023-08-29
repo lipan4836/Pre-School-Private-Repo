@@ -149,6 +149,7 @@ header {
   cursor: pointer;
   position: relative;
   z-index: 15;
+  fill: #BB945F;
 }
 
 .header-account:hover {
@@ -219,11 +220,18 @@ header {
   margin-bottom: 35px;
 }
 
+.carousel-wrapper {
+  width: 1400px;
+  overflow: hidden;
+}
+
 .carousel-gal {
   display: flex;
   align-items: center;
   gap: 25px;
   margin-bottom: 0px;
+  position: relative;
+  transition: all 0.2s ease-in;
 }
 
 .carousel-gal-wrap {
@@ -253,11 +261,6 @@ header {
   max-height: 560px;
 }
 
-.slide-4,
-.slide-5 {
-  display: none;
-}
-
 .carousel-pags {
   display: flex;
   justify-content: center;
@@ -276,6 +279,8 @@ header {
   cursor: pointer;
   position: relative;
   z-index: 1;
+  left: 0;
+  transition: all 0.2s ease-in;
 }
 
 .carousel-pag::after {
@@ -287,8 +292,9 @@ header {
   border-radius: 50%;
 }
 
-.active::after {
+.pag-active::after {
   background: #BB945F;
+  cursor: default;
 }
 
 /* --- favorites styles --- */
@@ -853,8 +859,14 @@ address {
 /* ------------------ @media queries ------------------ */
 
 @media (max-width: 1402px) {
-  .slide-3 {
-    display: none;
+  .pag-4 {
+    display: block;
+  }
+}
+
+@media (max-width: 1412px) {
+  .carousel-wrapper {
+    width: 925px;
   }
   .pag-4 {
     display: block;
@@ -952,16 +964,11 @@ address {
 }
 
 @media (max-width: 927px) {
-  .slide-2,
-  .slide-3 {
-    display: none;
+  .carousel-wrapper {
+    width: 450px;
   }
   .pag-5 {
     display: block;
-  }
-  .carousel-gal {
-    justify-content: center;
-    gap: 43px;
   }
   .carousel-btn {
     display: block;

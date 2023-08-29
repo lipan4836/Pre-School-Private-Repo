@@ -1,4 +1,4 @@
-console.log('1. Вёрстка соответствует макету. Ширина экрана 768px\t( total: +26 )\n\t- блок <header>\t( +2 )\n\t- секция Welcome\t( +2 )\n\t- секция About\t( +4 )\n\t- секция Favorites\t( +2 )\n\t- Сделать кнопку own, вместо buy для последней книги\t( +2 )\n\t- секция CoffeShop\t( +4 )\n\t- секция Contacts\t( +4 )\n\t- секция LibraryCard\t( +4 )\n\t- блок <footer>\t( +2 )\n\n2. Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется\t( total: +12 )\n\t- нет полосы прокрутки при ширине страницы от 1440рх до 640рх\t( +4 )\n\t- элементы не выходят за пределы окна браузера при ширине страницы от 1440рх до 640рх\t( +4 )\n\t- элементы не наезжают друг на друга при ширине страницы от 1440рх до 640рх\t( +4 )\n\n3. На ширине экрана 768рх реализовано адаптивное меню\t( total: +12 )\n\t- Иконка юзера не прыгает (не меняет позиции при открытии меню), независимо от величины отступа\t( +2 )\n\t- при нажатии на бургер-иконку плавно появляется адаптивное меню\t( +4 )\n\t- при нажатии на крестик, или на область вне меню, адаптивное меню плавно скрывается, уезжая за экран\t( +2 )\n\t- ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям при нажатии, а само адаптивное меню при этом плавно скрывается\t( +2 )\n\t- размеры открытого бургер-меню соответствуют макету\t( +2 )');
+// console.log('1. Вёрстка соответствует макету. Ширина экрана 768px\t( total: +26 )\n\t- блок <header>\t( +2 )\n\t- секция Welcome\t( +2 )\n\t- секция About\t( +4 )\n\t- секция Favorites\t( +2 )\n\t- Сделать кнопку own, вместо buy для последней книги\t( +2 )\n\t- секция CoffeShop\t( +4 )\n\t- секция Contacts\t( +4 )\n\t- секция LibraryCard\t( +4 )\n\t- блок <footer>\t( +2 )\n\n2. Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется\t( total: +12 )\n\t- нет полосы прокрутки при ширине страницы от 1440рх до 640рх\t( +4 )\n\t- элементы не выходят за пределы окна браузера при ширине страницы от 1440рх до 640рх\t( +4 )\n\t- элементы не наезжают друг на друга при ширине страницы от 1440рх до 640рх\t( +4 )\n\n3. На ширине экрана 768рх реализовано адаптивное меню\t( total: +12 )\n\t- Иконка юзера не прыгает (не меняет позиции при открытии меню), независимо от величины отступа\t( +2 )\n\t- при нажатии на бургер-иконку плавно появляется адаптивное меню\t( +4 )\n\t- при нажатии на крестик, или на область вне меню, адаптивное меню плавно скрывается, уезжая за экран\t( +2 )\n\t- ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям при нажатии, а само адаптивное меню при этом плавно скрывается\t( +2 )\n\t- размеры открытого бургер-меню соответствуют макету\t( +2 )');
 
 // burger menu
 
@@ -31,3 +31,46 @@ document.addEventListener('click', (e) => {
     closeMenu();
   };
 });
+
+// slider
+
+const slides = document.querySelector('.carousel-gal')
+const leftArrow = document.querySelector('.left-arrow')
+const rightArrow = document.querySelector('.right-arrow')
+const paginators = document.querySelector('.carousel-pags')
+let currenSlide = 0
+
+function changeSlide() {
+  document.querySelector('.pag-active').classList.remove('pag-active')
+  slides.style.transform = 'translateX(' + (currenSlide) * -475 + 'px)'
+}
+
+// paginators[currenSlide].disabled = true
+
+document.querySelectorAll('.carousel-pag').forEach(function(indicator, ind) {
+  indicator.addEventListener('click', () => {
+    currenSlide = ind
+    changeSlide()
+    indicator.classList.add('pag-active')
+  })
+})
+
+leftArrow.addEventListener('click', () => {
+  currenSlide = (currenSlide > 0) ? currenSlide - 1 : 0
+  changeSlide()
+  paginators.children[currenSlide].classList.add('pag-active')
+})
+
+rightArrow.addEventListener('click', () => {
+  currenSlide = (currenSlide < 4) ? currenSlide + 1 : 4
+  changeSlide()
+  paginators.children[currenSlide].classList.add('pag-active')
+  paginators.children[currenSlide].style.cursor = 'default'
+})
+
+if (currenSlide === 0) {
+  leftArrow.style.cursor = 'default'
+  leftArrow.style.background = '#c1b2b2'
+} else {
+  leftArrow.style.background = 'transparent'
+}
