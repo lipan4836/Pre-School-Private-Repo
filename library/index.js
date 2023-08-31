@@ -38,6 +38,8 @@ const slides = document.querySelector('.carousel-gal')
 const leftArrow = document.querySelector('.left-arrow')
 const rightArrow = document.querySelector('.right-arrow')
 const paginators = document.querySelector('.carousel-pags')
+const leftSvg = document.getElementById('leftArrow')
+const rightSvg = document.getElementById('rightArrow')
 let currenSlide = 0
 
 function changeSlide() {
@@ -59,12 +61,67 @@ leftArrow.addEventListener('click', () => {
   currenSlide = (currenSlide > 0) ? currenSlide - 1 : 0
   changeSlide()
   paginators.children[currenSlide].classList.add('pag-active')
+  if (currenSlide > 0) {
+    leftSvg.setAttribute('stroke', 'black')
+    leftArrow.style.cursor = 'pointer'
+  } else {
+    leftSvg.setAttribute('stroke', 'gray')
+    leftArrow.style.cursor = 'default'
+  }
 })
 
 rightArrow.addEventListener('click', () => {
   currenSlide = (currenSlide < 4) ? currenSlide + 1 : 4
   changeSlide()
   paginators.children[currenSlide].classList.add('pag-active')
+  if (currenSlide == 4) {
+    rightSvg.setAttribute('stroke', 'gray')
+    rightArrow.style.cursor = 'default'
+  } else {
+    rightSvg.setAttribute('stroke', 'black')
+    rightArrow.style.cursor = 'pointer'
+  }
 })
 
-console.log('leftArrow :', leftArrow);
+console.log('currentSlide :', currenSlide);
+console.log('leftSvg :', leftSvg);
+
+// не реализовал пока неактивность стрелок на концах
+
+// tabs by season
+
+let changeTab = function() {
+  let tabNavs = document.querySelectorAll('.radio-group'),
+      books = document.querySelectorAll('.books-wrap'),
+      booksSeason
+  
+  tabNavs.forEach( item => {
+    item.addEventListener('click', selectBooksSeason)
+  })
+
+  function selectBooksSeason () {
+    tabNavs.forEach( item => {
+      item.classList.remove('is-active')
+    })
+    this.classList.add('is-active')
+    console.log('this, selectBooksSeason :', this);
+    booksSeason = this.getAttribute('data-tab-name')
+    showSeasonsBooks(booksSeason)
+  }
+
+  function showSeasonsBooks (booksSeason) {
+    // booksSeason.classList.add('fade-out')
+    console.log('booksSeason', booksSeason);
+    console.log('this, showSeasonsBooks :', this);
+    books.forEach( item => {
+      
+      item.classList.contains(booksSeason) ? 
+      item.classList.add('is-active') & item.classList.add('fade-in') :
+      item.classList.remove('fade-in') & item.classList.add('fade-out') & item.classList.remove('is-active')
+    })
+  }
+}
+
+changeTab()
+
+// не реализован fade-out

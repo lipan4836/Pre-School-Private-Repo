@@ -252,6 +252,11 @@ header {
   margin-top: 7%;
 }
 
+.carousel-btn svg path {
+  stroke: blue;
+  cursor: default;
+}
+
 .carousel-btn:hover {
   transform: scale(1.3);
 }
@@ -382,12 +387,35 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 20px 20px 20px;
+  display: none;
 }
 
-.books-spring,
-.books-summer,
-.books-autumn {
-  display: none;
+.books-wrap.is-active {
+  display: flex;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: 1s ease fade-in;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.fade-out {
+  animation: 1s ease fade-out;
 }
 
 .book-item {
