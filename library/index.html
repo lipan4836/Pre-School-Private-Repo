@@ -31,14 +31,24 @@
         <button class="profile-btn header-account">
           <img class="profile-btn-ico" src="assets/svg/icon_profile.svg" alt="profile button">
         </button>
-        <div class="drop-menu">
-          <div class="drop-menu-geader">
+        <div class="drop-menu no-auth">
+          <div class="drop-menu-header">
             <span class="drop-menu-head">Profile</span>
             <div class="drop-menu-line"></div>
           </div>
           <div class="drop-menu-btn">
             <button class="login">Log In</button>
             <button class="login">Register</button> 
+          </div>
+        </div>
+        <div class="drop-menu with-auth">
+          <div class="drop-menu-header">
+            <span class="drop-menu-head">Profile</span>
+            <div class="drop-menu-line"></div>
+          </div>
+          <div class="drop-menu-btn">
+            <button class="login">My prodile</button>
+            <button class="login">Log Out</button> 
           </div>
         </div>
         <button class="profile-btn burger">
@@ -571,6 +581,122 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
           <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
         </svg>
       </button>
+    </div>
+  </div>
+  <div class="modal-log">
+    <div class="modal-log-wrap">
+      <span class="modal-reg-head">LOGIN</span>
+      <form action="" class="form-reg">
+        <div class="reg-form-wrap">
+          <label class="reg-label" for="">
+            E-mail or readers card
+            <input class="reg-input" type="text">
+          </label>
+          <label class="reg-label" for="">
+            Password
+            <input class="reg-input"  type="text">
+          </label>
+        </div>
+        <button class="reg-btn-signup">Log In</button>
+      </form>
+      <div class="modal-reg-foot">
+        <p class="modal-reg-foot-text">Don`t have an account?</p>
+        <button class="modal-reg-btn-foot">Registr</button>
+      </div>
+      <button class="modal-btn-close-log">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+          <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
+          <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="modal-prof">
+    <div class="prof-name">
+      <div class="prof-avatar">jd</div>
+      <div class="prof-name-text">Jonh Doe</div>
+    </div>
+    <div class="prof-content">
+      <p class="prof-head">MY PROFILE</p>
+      <div class="prof-midle">
+        <div class="prof-counters">
+          <div class="prof-visits">
+            <p class="prof-counts-head">Visits</p>
+            <img src="assets/svg/visits_info.svg" alt="visits counter">
+            <span class="prof-count">23</span>
+          </div>
+          <div class="prof-bonuses">
+            <p class="prof-counts-head">Bonuses</p>
+            <img src="assets/svg/Star 1.svg" alt="bonuses counter">
+            <span class="prof-count">1240</span>
+          </div>
+          <div class="prof-books">
+            <p class="prof-counts-head">Books</p>
+            <img src="assets/svg/book.svg" alt="books counter">
+            <span class="prof-count">2</span>
+          </div>
+        </div>
+        <span class="rent-books">Rented books</span>
+        <ul class="rent-books-list">
+          <li class="rent-book">The Last Queen, Clive Irving</li>
+          <li class="rent-book">Dominicana, Angie Cruz</li>
+        </ul>
+      </div>
+      <div class="prof-card-num-wrap">
+        <p class="prof-card-text">Card number</p>
+        <span class="prof-card-number">F00234030</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+          <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
+          <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
+        </svg>
+      </div>
+      <button class="modal-btn-prof-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+          <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
+          <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="modal-buy-card">
+    <div class="modal-buy-wrap">
+      <div class="modal-buy-header">
+        <p class="buy-head">BUY A LIBRARY CARD</p>
+        <button class="modal-buy-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+            <path d="M2 16.8507L17 2.00003" stroke="#FFF" stroke-width="3"/>
+            <path d="M2 2.14926L17 17" stroke="#FFF" stroke-width="3"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-buy-content">
+        <div class="modal-buy-form">
+          <form action="" class="buy-form">
+            <span class="buy-form-text">Bank card number</span>
+            <input type="text" class="buy-form-input">
+            <span class="buy-form-text">Expiration code</span>
+            <div class="card-date">
+              <input type="text" class="buy-form-input small-input">
+              <input type="text" class="buy-form-input small-input">
+            </div>
+            <span class="buy-form-text">CVC</span>
+            <input type="text" class="buy-form-input small-input">
+            <span class="buy-form-text">Cardholder name</span>
+            <input type="text" class="buy-form-input">
+            <span class="buy-form-text">Postal code</span>
+            <input type="text" class="buy-form-input">
+            <span class="buy-form-text">City / Town</span>
+            <input type="text" class="buy-form-input">
+            <div class="submit-buy">
+              <button class="buy-btn">Buy</button>
+              <span class="price">$ 25.00</span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-buy-discr">
+          If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
+        </div>
+      </div>
     </div>
   </div>
 </body>
