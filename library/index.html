@@ -19,7 +19,7 @@
     <div class="header-wrap">
       <h1>Brooklyn Public Library</h1>
       <div class="linkbar">
-        <nav class="nav-desk">
+        <nav class="nav-desk popup" id="burger">
           <ul class="nav-list">
             <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
             <li class="nav-item"><a href="#favorites" class="nav-link">Favorites</a></li>
@@ -28,10 +28,10 @@
             <li class="nav-item"><a href="#library-card" class="nav-link">Library Card</a></li>
           </ul>
         </nav>
-        <button class="profile-btn header-account">
+        <button class="profile-btn header-account account">
           <img class="profile-btn-ico" src="assets/svg/icon_profile.svg" alt="profile button">
         </button>
-        <div class="drop-menu no-auth">
+        <div class="drop-menu no-auth popup" id="drop_noauth">
           <div class="drop-menu-header">
             <span class="drop-menu-head">Profile</span>
             <div class="drop-menu-line"></div>
@@ -41,13 +41,13 @@
             <button class="login">Register</button> 
           </div>
         </div>
-        <div class="drop-menu with-auth">
+        <div class="drop-menu with-auth popup" id="drop_auth">
           <div class="drop-menu-header">
             <span class="drop-menu-head">Profile</span>
             <div class="drop-menu-line"></div>
           </div>
           <div class="drop-menu-btn">
-            <button class="login">My prodile</button>
+            <button class="login">My profile</button>
             <button class="login">Log Out</button> 
           </div>
         </div>
@@ -117,36 +117,38 @@
       <div class="favorites-wrap container">
         <h2>Favorites</h2>
         <div class="underline"></div>
-        <p class="seasons-text">Pick favorites of season</p>
-        <div class="seasons-list">
-          <div class="radio-group is-active" data-tab-name="books-winter">
-            <label class="radio">
-              <input type="radio" value="winter" name="seasons" checked>
-              <span class="radio-text">Winter</span>
-              <span class="radio-mark"></span>
-            </label>
-          </div>
-          <div class="radio-group" data-tab-name="books-spring">
-            <label class="radio">
-              <input type="radio" value="spring" name="seasons">
-              <span class="radio-text">Spring</span>
-              <span class="radio-mark"></span>
-            </label>
-          </div>
-          <div class="radio-group" data-tab-name="books-summer">
-            <label class="radio">
-              <input type="radio" value="summer" name="seasons">
-              <span class="radio-text">Summer</span>
-              <span class="radio-mark"></span>
-            </label>
-          </div>
-          <div class="radio-group" data-tab-name="books-autumn">
-            <label class="radio">
-              <input type="radio" value="autumn" name="seasons">
-              <span class="radio-text">Autumn</span>
-              <span class="radio-mark"></span>
-            </label>
-          </div>
+        <div class="seasons-wrap">
+          <p class="seasons-text">Pick favorites of season</p>
+          <div class="seasons-list">
+            <div class="radio-group is-active" data-tab-name="books-winter">
+              <label class="radio">
+                <input type="radio" value="winter" name="seasons" checked>
+                <span class="radio-text">Winter</span>
+                <span class="radio-mark"></span>
+              </label>
+            </div>
+            <div class="radio-group" data-tab-name="books-spring">
+              <label class="radio">
+                <input type="radio" value="spring" name="seasons">
+                <span class="radio-text">Spring</span>
+                <span class="radio-mark"></span>
+              </label>
+            </div>
+            <div class="radio-group" data-tab-name="books-summer">
+              <label class="radio">
+                <input type="radio" value="summer" name="seasons">
+                <span class="radio-text">Summer</span>
+                <span class="radio-mark"></span>
+              </label>
+            </div>
+            <div class="radio-group" data-tab-name="books-autumn">
+              <label class="radio">
+                <input type="radio" value="autumn" name="seasons">
+                <span class="radio-text">Autumn</span>
+                <span class="radio-mark"></span>
+              </label>
+            </div>
+        </div>
         </div>
         <div class="tabs">
           <div class="books-wrap books-winter is-active">
@@ -196,7 +198,7 @@
               <p class="book-description">
                 A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
               </p>
-              <button class="own-btn" disabled>Own</button>
+              <button class="buy-btn">Buy</button>
             </div>
             <div class="book-cover">
               <img src="assets/img/book-w-04.jpg" alt="book cover">
@@ -250,7 +252,7 @@
                 <p class="book-description">
                   A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.
                 </p>
-                <button class="own-btn" disabled>Own</button>
+                <button class="buy-btn">Buy</button>
               </div>
               <div class="book-cover">
                 <img src="assets/img/book-sp-04.jpg" alt="book cover">
@@ -304,7 +306,7 @@
                 <p class="book-description">
                   An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.
                 </p>
-                <button class="own-btn" disabled>Own</button>
+                <button class="buy-btn">Buy</button>
               </div>
               <div class="book-cover">
                 <img src="assets/img/book-sum-04.jpg" alt="book cover">
@@ -358,7 +360,7 @@
                 <p class="book-description">
                   Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
                 </p>
-                <button class="own-btn" disabled>Own</button>
+                <button class="buy-btn">Buy</button>
               </div>
               <div class="book-cover">
                 <img src="assets/img/book-au-04.jpg" alt="book cover">
@@ -518,8 +520,8 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
                 You will be able to see a reader card after logging into account or you can register a new account
               </p>
               <div class="get-account">
-                <button class="btn-account">Sign Up</button>
-                <button class="btn-account">Log in</button>
+                <button class="btn-account account">Sign Up</button>
+                <button class="btn-account account">Log in</button>
               </div>
             </div>
             <div class="get-card-log">
@@ -576,8 +578,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
       </div>
     </div>
   </footer>
-  <script src="index.js"></script>
-  <div class="modal-reg">
+  <div class="modal-reg popup" id="register">
     <div class="modal-reg-wrap">
       <span class="modal-reg-head">REGISTER</span>
       <form action="" class="form-reg">
@@ -605,7 +606,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
         <p class="modal-reg-foot-text">Already have an account?</p>
         <button class="modal-reg-btn-foot">Login</button>
       </div>
-      <button class="modal-btn-close">
+      <button class="modal-btn-close close-popup">
         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
           <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
           <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
@@ -613,7 +614,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
       </button>
     </div>
   </div>
-  <div class="modal-log">
+  <div class="modal-log popup" id="login">
     <div class="modal-log-wrap">
       <span class="modal-reg-head">LOGIN</span>
       <form action="" class="form-reg">
@@ -633,7 +634,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
         <p class="modal-reg-foot-text">Don`t have an account?</p>
         <button class="modal-reg-btn-foot">Registr</button>
       </div>
-      <button class="modal-btn-close-log">
+      <button class="modal-btn-close-log close-popup">
         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
           <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
           <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
@@ -641,7 +642,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
       </button>
     </div>
   </div>
-  <div class="modal-prof">
+  <div class="modal-prof popup" id="profile">
     <div class="prof-name">
       <div class="prof-avatar">jd</div>
       <div class="prof-name-text">Jonh Doe</div>
@@ -680,7 +681,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
           <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
         </svg>
       </div>
-      <button class="modal-btn-prof-close">
+      <button class="modal-btn-prof-close close-popup">
         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
           <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
           <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
@@ -688,11 +689,11 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
       </button>
     </div>
   </div>
-  <div class="modal-buy-card">
+  <div class="modal-buy-card popup" id="buy_card">
     <div class="modal-buy-wrap">
       <div class="modal-buy-header">
         <p class="buy-head">BUY A LIBRARY CARD</p>
-        <button class="modal-buy-close">
+        <button class="modal-buy-close close-popup">
           <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
             <path d="M2 16.8507L17 2.00003" stroke="#FFF" stroke-width="3"/>
             <path d="M2 2.14926L17 17" stroke="#FFF" stroke-width="3"/>
@@ -729,5 +730,6 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
       </div>
     </div>
   </div>
+  <script src="index.js"></script>
 </body>
 </html>

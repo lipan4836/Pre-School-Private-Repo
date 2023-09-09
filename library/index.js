@@ -34,79 +34,66 @@ document.addEventListener('click', (e) => {
 
 // slider
 
-const slides = document.querySelector('.carousel-gal')
-const leftArrow = document.querySelector('.left-arrow')
-const rightArrow = document.querySelector('.right-arrow')
-const paginators = document.querySelector('.carousel-pags')
-const leftSvg = document.getElementById('leftArrow')
-const rightSvg = document.getElementById('rightArrow')
-let currenSlide = 0
+function aboutSlider() {
+  const slides = document.querySelector('.carousel-gal');
+  const leftArrow = document.querySelector('.left-arrow');
+  const rightArrow = document.querySelector('.right-arrow');
+  const paginators = document.querySelector('.carousel-pags');
+  const leftSvg = document.getElementById('leftArrow');
+  const rightSvg = document.getElementById('rightArrow');
+  let currenSlide = 0;
 
-function changeSlide() {
-  document.querySelector('.pag-active').classList.remove('pag-active')
-  slides.style.transform = 'translateX(' + (currenSlide) * -475 + 'px)'
+  function changeSlide() {
+    currenSlide === 0 ? leftArrow.classList.add('end') : leftArrow.classList.remove('end');
+    currenSlide === 4 ? rightArrow.classList.add('end') : rightArrow.classList.remove('end');
+    
+    document.querySelector('.pag-active').classList.remove('pag-active');
+    slides.style.transform = 'translateX(' + (currenSlide) * -475 + 'px)';
+  }
+
+  document.querySelectorAll('.carousel-pag').forEach((indicator, ind) => {
+    indicator.addEventListener('click', () => {
+      currenSlide = ind;
+      changeSlide();
+      indicator.classList.add('pag-active');
+    });
+  });
+
+  leftArrow.addEventListener('click', () => {
+    currenSlide = (currenSlide > 0) ? currenSlide - 1 : 0;
+    changeSlide();
+    paginators.children[currenSlide].classList.add('pag-active');
+    
+  });
+
+  rightArrow.addEventListener('click', () => {
+    currenSlide = (currenSlide < 4) ? currenSlide + 1 : 4
+    changeSlide();
+    paginators.children[currenSlide].classList.add('pag-active');
+  });
 }
 
-
-
-document.querySelectorAll('.carousel-pag').forEach((indicator, ind) => {
-  indicator.addEventListener('click', () => {
-    currenSlide = ind
-    changeSlide()
-    indicator.classList.add('pag-active')
-  })
-})
-
-leftArrow.addEventListener('click', () => {
-  currenSlide = (currenSlide > 0) ? currenSlide - 1 : 0
-  changeSlide()
-  paginators.children[currenSlide].classList.add('pag-active')
-  if (currenSlide > 0) {
-    leftSvg.setAttribute('stroke', 'black')
-    leftArrow.style.cursor = 'pointer'
-  } else {
-    leftSvg.setAttribute('stroke', 'gray')
-    leftArrow.style.cursor = 'default'
-  }
-})
-
-rightArrow.addEventListener('click', () => {
-  currenSlide = (currenSlide < 4) ? currenSlide + 1 : 4
-  changeSlide()
-  paginators.children[currenSlide].classList.add('pag-active')
-  if (currenSlide == 4) {
-    rightSvg.setAttribute('stroke', 'gray')
-    rightArrow.style.cursor = 'default'
-  } else {
-    rightSvg.setAttribute('stroke', 'black')
-    rightArrow.style.cursor = 'pointer'
-  }
-})
-
-console.log('currentSlide :', currenSlide);
-console.log('leftSvg :', leftSvg);
-
-// не реализовал пока неактивность стрелок на концах
+aboutSlider();
 
 // tabs by season
 
 let changeTab = function() {
   let tabNavs = document.querySelectorAll('.radio-group'),
       books = document.querySelectorAll('.books-wrap'),
-      booksSeason
+      booksSeason;
   
   tabNavs.forEach( item => {
-    item.addEventListener('click', selectBooksSeason)
+    item.addEventListener('click', selectBooksSeason);
   })
 
   function selectBooksSeason () {
     tabNavs.forEach( item => {
-      item.classList.remove('is-active')
-    })
-    this.classList.add('is-active')
+      item.classList.remove('is-active');
+    });
+    this.classList.add('is-active');
     console.log('this, selectBooksSeason :', this);
-    booksSeason = this.getAttribute('data-tab-name')
-    showSeasonsBooks(booksSeason)
+    booksSeason = this.getAttribute('data-tab-name');
+    showSeasonsBooks(booksSeason);
   }
 
   function showSeasonsBooks (booksSeason) {
@@ -114,10 +101,23 @@ let changeTab = function() {
     console.log('booksSeason', booksSeason);
     console.log('this, showSeasonsBooks :', this);
     books.forEach( item => {
-      
-      item.classList.contains(booksSeason) ? 
-      item.classList.add('is-active') & item.classList.add('fade-in') :
-      item.classList.remove('fade-in') & item.classList.add('fade-out') & item.classList.remove('is-active')
+      if (item.classList.contains(booksSeason)) {
+        item.classList.add('fade-in');
+        item.classList.add('is-active');
+        // setTimeout(() => {
+        //   item.classList.remove('fade-in');
+        // }, 500); 
+        // setTimeout(() => {
+        //   item.classList.add('is-active');
+        // }, 500); 
+      } else {
+        // item.classList.add('fade-out');
+        item.classList.remove('is-active');
+        item.classList.remove('fade-in');
+      }
+      // item.classList.contains(booksSeason) ? 
+      // item.classList.add('is-active') & item.classList.add('fade-in') :
+      // item.classList.remove('fade-in') & item.classList.add('fade-out') & item.classList.remove('is-active')
     })
   }
 }
@@ -125,3 +125,12 @@ let changeTab = function() {
 changeTab()
 
 // не реализован fade-out
+
+// drop menus
+
+const dropMenuBtns = document.querySelectorAll('.account');
+const dropMenuNoAuth = document.querySelector('.no-auth');
+const dropMenuWithAuth = document.querySelector('.with-auth');
+const popupCloseIcon = document.querySelectorAll('.close-popup');
+const timeout = 500; // таймаут для блокировки скролла
+
