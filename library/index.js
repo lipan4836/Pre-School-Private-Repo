@@ -2,135 +2,121 @@
 
 // burger menu
 
-const burgerBtn = document.querySelector('.burger');
-const menu = document.querySelector('.nav-desk');
-const links = document.querySelector('.nav-list');
+const burgerBtn = document.querySelector('.burger')
+const menu = document.querySelector('.nav-desk')
+const links = document.querySelector('.nav-list')
 
 function toggleMenu() {
-  burgerBtn.classList.toggle('burger-active');
-  menu.classList.toggle('nav-desk-active');
-  document.body.classList.toggle('lock');
+  burgerBtn.classList.toggle('burger-active')
+  menu.classList.toggle('nav-desk-active')
+  document.body.classList.toggle('lock')
 }
 
 function closeMenu() {
-  burgerBtn.classList.remove('burger-active');
-  menu.classList.remove('nav-desk-active');
-  document.body.classList.remove('lock');
+  burgerBtn.classList.remove('burger-active')
+  menu.classList.remove('nav-desk-active')
+  document.body.classList.remove('lock')
 }
 
 document.addEventListener('click', (e) => {
   if (e.composedPath().includes(burgerBtn)) {
-    toggleMenu();
-  };
+    toggleMenu()
+  }
 
   if (e.composedPath().includes(links)) {
-    toggleMenu();
-  };
+    toggleMenu()
+  }
 
   if (!e.target.classList.contains('burger') && !e.target.closest('nav')) {
-    closeMenu();
-  };
-});
+    closeMenu()
+  }
+})
 
 // slider
 
 function aboutSlider() {
-  const slides = document.querySelector('.carousel-gal');
-  const leftArrow = document.querySelector('.left-arrow');
-  const rightArrow = document.querySelector('.right-arrow');
-  const paginators = document.querySelector('.carousel-pags');
-  const leftSvg = document.getElementById('leftArrow');
-  const rightSvg = document.getElementById('rightArrow');
-  let currenSlide = 0;
+  const slides = document.querySelector('.carousel-gal')
+  const leftArrow = document.querySelector('.left-arrow')
+  const rightArrow = document.querySelector('.right-arrow')
+  const paginators = document.querySelector('.carousel-pags')
+  const leftSvg = document.getElementById('leftArrow')
+  const rightSvg = document.getElementById('rightArrow')
+  let currenSlide = 0
 
   function changeSlide() {
-    currenSlide === 0 ? leftArrow.classList.add('end') : leftArrow.classList.remove('end');
-    currenSlide === 4 ? rightArrow.classList.add('end') : rightArrow.classList.remove('end');
-    
-    document.querySelector('.pag-active').classList.remove('pag-active');
-    slides.style.transform = 'translateX(' + (currenSlide) * -475 + 'px)';
+    currenSlide === 0
+      ? leftArrow.classList.add('end')
+      : leftArrow.classList.remove('end')
+    currenSlide === 4
+      ? rightArrow.classList.add('end')
+      : rightArrow.classList.remove('end')
+
+    document.querySelector('.pag-active').classList.remove('pag-active')
+    slides.style.transform = 'translateX(' + currenSlide * -475 + 'px)'
   }
 
   document.querySelectorAll('.carousel-pag').forEach((indicator, ind) => {
     indicator.addEventListener('click', () => {
-      currenSlide = ind;
-      changeSlide();
-      indicator.classList.add('pag-active');
-    });
-  });
-
-  leftArrow.addEventListener('click', () => {
-    currenSlide = (currenSlide > 0) ? currenSlide - 1 : 0;
-    changeSlide();
-    paginators.children[currenSlide].classList.add('pag-active');
-    
-  });
-
-  rightArrow.addEventListener('click', () => {
-    currenSlide = (currenSlide < 4) ? currenSlide + 1 : 4
-    changeSlide();
-    paginators.children[currenSlide].classList.add('pag-active');
-  });
-}
-
-aboutSlider();
-
-// tabs by season
-
-let changeTab = function() {
-  let tabNavs = document.querySelectorAll('.radio-group'),
-      books = document.querySelectorAll('.books-wrap'),
-      booksSeason;
-  
-  tabNavs.forEach( item => {
-    item.addEventListener('click', selectBooksSeason);
+      currenSlide = ind
+      changeSlide()
+      indicator.classList.add('pag-active')
+    })
   })
 
-  function selectBooksSeason () {
-    tabNavs.forEach( item => {
-      item.classList.remove('is-active');
-    });
-    this.classList.add('is-active');
-    console.log('this, selectBooksSeason :', this);
-    booksSeason = this.getAttribute('data-tab-name');
-    showSeasonsBooks(booksSeason);
-  }
+  leftArrow.addEventListener('click', () => {
+    currenSlide = currenSlide > 0 ? currenSlide - 1 : 0
+    changeSlide()
+    paginators.children[currenSlide].classList.add('pag-active')
+  })
 
-  function showSeasonsBooks (booksSeason) {
-    // booksSeason.classList.add('fade-out')
-    console.log('booksSeason', booksSeason);
-    console.log('this, showSeasonsBooks :', this);
-    books.forEach( item => {
-      if (item.classList.contains(booksSeason)) {
-        item.classList.add('fade-in');
-        item.classList.add('is-active');
-        // setTimeout(() => {
-        //   item.classList.remove('fade-in');
-        // }, 500); 
-        // setTimeout(() => {
-        //   item.classList.add('is-active');
-        // }, 500); 
-      } else {
-        // item.classList.add('fade-out');
-        item.classList.remove('is-active');
-        item.classList.remove('fade-in');
-      }
-      // item.classList.contains(booksSeason) ? 
-      // item.classList.add('is-active') & item.classList.add('fade-in') :
-      // item.classList.remove('fade-in') & item.classList.add('fade-out') & item.classList.remove('is-active')
-    })
-  }
+  rightArrow.addEventListener('click', () => {
+    currenSlide = currenSlide < 4 ? currenSlide + 1 : 4
+    changeSlide()
+    paginators.children[currenSlide].classList.add('pag-active')
+  })
 }
 
-changeTab()
+aboutSlider()
+
+// tabs by season
+;(function () {
+  let tabNavs = document.querySelectorAll('.radio-group')
+
+  tabNavs.forEach((item) => {
+    item.addEventListener('click', function () {
+      tabNavs.forEach((item) => {
+        item.classList.remove('is-active')
+      })
+      this.classList.add('is-active')
+      console.log('this, selectBooksSeason :', this)
+      showSeasonsBooks(this.getAttribute('data-tab-name'))
+    })
+  })
+
+  function showSeasonsBooks(booksSeason) {
+    // booksSeason.classList.add('fade-out')
+    console.log('booksSeason', booksSeason)
+    console.log('this, showSeasonsBooks :', this)
+
+    let oldActive = document.querySelector('.tabs>.books-wrap.is-active')
+    let newActive = document.querySelector('.tabs>.books-wrap.' + booksSeason)
+    oldActive.classList.remove('fade-in')
+    oldActive.classList.add('fade-out')
+    setTimeout(() => {
+      newActive.classList.remove('fade-out')
+      newActive.classList.add('fade-in')
+      newActive.classList.add('is-active')
+      oldActive.classList.remove('is-active')
+    }, 500)
+  }
+})()
 
 // не реализован fade-out
 
 // drop menus
 
-const dropMenuBtns = document.querySelectorAll('.account');
-const dropMenuNoAuth = document.querySelector('.no-auth');
-const dropMenuWithAuth = document.querySelector('.with-auth');
-const popupCloseIcon = document.querySelectorAll('.close-popup');
-const timeout = 500; // таймаут для блокировки скролла
-
+const dropMenuBtns = document.querySelectorAll('.account')
+const dropMenuNoAuth = document.querySelector('.no-auth')
+const dropMenuWithAuth = document.querySelector('.with-auth')
+const popupCloseIcon = document.querySelectorAll('.close-popup')
+const timeout = 500 // таймаут для блокировки скролла
