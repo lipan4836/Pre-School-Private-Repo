@@ -124,6 +124,7 @@ header {
   align-items: center;
   padding: 0 20px;
   background: #0C0C0E;
+  position: relative;
 }
 
 .linkbar {
@@ -149,6 +150,7 @@ header {
   cursor: pointer;
   position: relative;
   z-index: 15;
+  fill: #BB945F;
 }
 
 .header-account:hover {
@@ -219,11 +221,18 @@ header {
   margin-bottom: 35px;
 }
 
+.carousel-wrapper {
+  width: 1400px;
+  overflow: hidden;
+}
+
 .carousel-gal {
   display: flex;
   align-items: center;
   gap: 25px;
   margin-bottom: 0px;
+  position: relative;
+  transition: all 0.2s ease-in;
 }
 
 .carousel-gal-wrap {
@@ -244,6 +253,10 @@ header {
   margin-top: 7%;
 }
 
+.end {
+  cursor: default;
+}
+
 .carousel-btn:hover {
   transform: scale(1.3);
 }
@@ -251,11 +264,6 @@ header {
 .carousel-img {
   max-width: 450px;
   max-height: 560px;
-}
-
-.slide-4,
-.slide-5 {
-  display: none;
 }
 
 .carousel-pags {
@@ -276,6 +284,8 @@ header {
   cursor: pointer;
   position: relative;
   z-index: 1;
+  left: 0;
+  transition: all 0.2s ease-in;
 }
 
 .carousel-pag::after {
@@ -287,8 +297,9 @@ header {
   border-radius: 50%;
 }
 
-.active::after {
+.pag-active::after {
   background: #BB945F;
+  cursor: default;
 }
 
 /* --- favorites styles --- */
@@ -376,12 +387,35 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 20px 20px 20px;
+  display: none;
 }
 
-.books-spring,
-.books-summer,
-.books-autumn {
-  display: none;
+.books-wrap.is-active {
+  display: flex;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: 0.5s ease fade-in;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.fade-out {
+  animation: 0.5s ease fade-out;
 }
 
 .book-item {
@@ -726,7 +760,19 @@ header {
 
 .get-card {
   width: 456px;
+}
+
+.get-card-notlog {
+  width: 100%;
   display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.get-card-log {
+  display: none;
+  width: 100%;
   align-items: flex-end;
   flex-direction: column;
   gap: 35px;
@@ -760,6 +806,12 @@ header {
 .btn-account:hover {
   border-color: #BB945F;
   background: #BB945F;
+}
+
+.prof-counters-login {
+  display: none;
+  width: 237px;
+  gap: 20px;
 }
 
 /* --- footer styles --- */
@@ -850,11 +902,411 @@ address {
   padding-left: 112px;
 }
 
+/* ---------------------------------------------------- */
+/* ----------------------- modals --------------------- */
+
+.drop-menu {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 45px;
+  right: 20px;
+  z-index: 7;
+  width: 80px;
+  height: 115px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background: #FFF;
+  padding-top: 5px;
+  transition: all 0.5s ease;
+}
+.drop-menu.open {
+  opacity: 1;
+  visibility: visible;
+}
+.drop-menu-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.drop-menu-head {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+}
+.drop-menu-line {
+  width: 40px;
+  height: 1px;
+  background: #BB945F;
+}
+.drop-menu-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.modal-reg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #00000080;
+  overflow: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-log {
+  /* position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0; */
+  background: #00000080;
+  overflow: hidden;
+  overflow-y: auto;
+  display: none;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+.modal-reg-wrap {
+  width: 250px;
+  height: 382px;
+  max-width: 100%;
+  background: #FFF;
+  padding: 20px 25px;
+}
+.modal-log-wrap {
+  width: 250px;
+  height: 262px;
+  max-width: 100%;
+  background: #FFF;
+  padding: 20px 25px;
+}
+.modal-btn-close {
+  border: none;
+  background: transparent;
+  position: relative;
+  bottom: 352px;
+  left: 192px;
+  cursor: pointer;
+}
+.modal-btn-close-log {
+  border: none;
+  background: transparent;
+  position: relative;
+  bottom: 232px;
+  left: 192px;
+  cursor: pointer;
+}
+.modal-reg-head {
+  display: flex;
+  justify-content: center;
+  font-family: 'Forum';
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  margin: 0 auto 20px auto;
+}
+.reg-form-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.reg-label {
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+.reg-input {
+  border: 1px solid #BB945F;
+  width: 100%;
+  height: 20px;
+  margin-top: 10px;
+}
+.reg-btn-signup {
+  width: 75px;
+  height: 30px;
+  border: 1px solid #0C0C0E;
+  border-radius: 2px;
+  background: transparent;
+  font-size: 10px;
+  font-weight: 700;
+  list-style: 1px;
+  cursor: pointer;
+}
+.modal-reg-foot-text {
+  display: inline-block;
+  font-size: 10px;
+  margin-right: 4px;
+}
+.modal-reg-btn-foot {
+  display: inline;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal-prof { 
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #00000080;
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 20;
+}
+.prof-name {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  background: #0C0C0E;
+  width: 170px;
+  height: 400px;
+}
+.prof-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background: #FFF;
+  color: #BB945F;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.prof-name-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  min-height: 30px;
+  background: #FFF;
+}
+.prof-content {
+  width: 430px;
+  height: 400px;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 20px;
+}
+.prof-head {
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+}
+.prof-midle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.prof-counters {
+  width: 237px;
+  display: flex;
+  gap: 20px;
+}
+.prof-visits,
+.prof-bonuses,
+.prof-books {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.prof-counts-head {
+  line-height: 20px;
+  letter-spacing: 0.4px;
+}
+.prof-count {
+  font-size: 10px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+.rent-books {
+  font-size: 25px;
+  line-height: 20px;
+  color: #0C0C0E;
+  margin-bottom: 10px;
+}
+.rent-books-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rent-book {
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-decoration: capitalize;
+  margin-left: 30px;
+}
+.prof-card-num-wrap {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.prof-card-text {
+  display: inline;
+  line-height: 20px;
+  color: #0C0C0E;
+}
+.prof-card-number {
+  line-height: 20px;
+  color: #BB945F;
+}
+.modal-btn-prof-close {
+  border: none;
+  background: transparent;
+  position: relative;
+  bottom: 377px;
+  left: 182px;
+  cursor: pointer;
+}
+
+.modal-buy-card {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #00000080;
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 20;
+}
+.modal-buy-wrap {
+  width: 650px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+}
+.modal-buy-header {
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 103px;
+  background: #0C0C0E;
+}
+.buy-head {
+  font-family: Forum;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  color: #FFF;
+}
+.modal-buy-close {
+  border: none;
+  background: transparent;
+}
+.modal-buy-content {
+  width: 100%;
+  height: 480px;
+  display: flex;
+  gap: 40px;
+  padding: 30px 40px 40px;
+  background: #FFF;
+}
+.modal-buy-form {
+  width: 200px;
+}
+.buy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.buy-form-text {
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+.buy-form-input {
+  width: 100%;
+  height: 20px;
+  border: 1px solid #BB945F;
+}
+.small-input {
+  width: 45px;
+}
+/* не срабатывает код ниже */
+.small-input input:nth-child(3) {
+  margin-bottom: 10px;
+}
+.modal-buy-discr {
+  width: 330px;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: #8e8e8e;
+}
+.submit-buy {
+  display: flex;
+  gap: 25px;
+  align-items: flex-end;
+}
+.price {
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: #0C0C0E;
+}
+
 /* ------------------ @media queries ------------------ */
 
 @media (max-width: 1402px) {
-  .slide-3 {
-    display: none;
+  .pag-4 {
+    display: block;
+  }
+}
+
+@media (max-width: 1412px) {
+  .carousel-wrapper {
+    width: 925px;
   }
   .pag-4 {
     display: block;
@@ -869,6 +1321,12 @@ address {
 }
 
 @media (max-width: 1219px) {
+  .seasons-wrap {
+    position: sticky;
+    top: 0;
+    background: #FFF;
+    z-index: 25;
+  }
   .books-wrap {
     justify-content: center;
   }
@@ -940,6 +1398,10 @@ address {
     bottom: 50%;
     transform: rotate(45deg) translateY(50%);
   }
+  .drop-menu {
+    top: 45px;
+    right: 100px;
+  }
 }
 
 @media (max-width: 970px) {
@@ -952,16 +1414,11 @@ address {
 }
 
 @media (max-width: 927px) {
-  .slide-2,
-  .slide-3 {
-    display: none;
+  .carousel-wrapper {
+    width: 450px;
   }
   .pag-5 {
     display: block;
-  }
-  .carousel-gal {
-    justify-content: center;
-    gap: 43px;
   }
   .carousel-btn {
     display: block;
