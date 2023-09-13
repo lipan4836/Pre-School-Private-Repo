@@ -1,5 +1,3 @@
-// console.log('1. Вёрстка соответствует макету. Ширина экрана 768px\t( total: +26 )\n\t- блок <header>\t( +2 )\n\t- секция Welcome\t( +2 )\n\t- секция About\t( +4 )\n\t- секция Favorites\t( +2 )\n\t- Сделать кнопку own, вместо buy для последней книги\t( +2 )\n\t- секция CoffeShop\t( +4 )\n\t- секция Contacts\t( +4 )\n\t- секция LibraryCard\t( +4 )\n\t- блок <footer>\t( +2 )\n\n2. Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется\t( total: +12 )\n\t- нет полосы прокрутки при ширине страницы от 1440рх до 640рх\t( +4 )\n\t- элементы не выходят за пределы окна браузера при ширине страницы от 1440рх до 640рх\t( +4 )\n\t- элементы не наезжают друг на друга при ширине страницы от 1440рх до 640рх\t( +4 )\n\n3. На ширине экрана 768рх реализовано адаптивное меню\t( total: +12 )\n\t- Иконка юзера не прыгает (не меняет позиции при открытии меню), независимо от величины отступа\t( +2 )\n\t- при нажатии на бургер-иконку плавно появляется адаптивное меню\t( +4 )\n\t- при нажатии на крестик, или на область вне меню, адаптивное меню плавно скрывается, уезжая за экран\t( +2 )\n\t- ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям при нажатии, а само адаптивное меню при этом плавно скрывается\t( +2 )\n\t- размеры открытого бургер-меню соответствуют макету\t( +2 )');
-
 // burger menu
 
 const burgerBtn = document.querySelector('.burger')
@@ -79,44 +77,337 @@ function aboutSlider() {
 aboutSlider()
 
 // tabs by season
+
 ;(function () {
   let tabNavs = document.querySelectorAll('.radio-group')
 
   tabNavs.forEach((item) => {
     item.addEventListener('click', function () {
       tabNavs.forEach((item) => {
-        item.classList.remove('is-active')
-      })
-      this.classList.add('is-active')
-      console.log('this, selectBooksSeason :', this)
-      showSeasonsBooks(this.getAttribute('data-tab-name'))
-    })
-  })
+        item.classList.remove('is-active');
+      });
+      this.classList.add('is-active');
+      console.log('this, selectBooksSeason :', this);
+      showSeasonsBooks(this.getAttribute('data-tab-name'));
+    });
+  });
 
   function showSeasonsBooks(booksSeason) {
-    // booksSeason.classList.add('fade-out')
-    console.log('booksSeason', booksSeason)
-    console.log('this, showSeasonsBooks :', this)
 
-    let oldActive = document.querySelector('.tabs>.books-wrap.is-active')
-    let newActive = document.querySelector('.tabs>.books-wrap.' + booksSeason)
-    oldActive.classList.remove('fade-in')
-    oldActive.classList.add('fade-out')
+    let oldActive = document.querySelector('.tabs>.books-wrap.is-active');
+    let newActive = document.querySelector('.tabs>.books-wrap.' + booksSeason);
+    oldActive.classList.remove('fade-in');
+    oldActive.classList.add('fade-out');
     setTimeout(() => {
-      newActive.classList.remove('fade-out')
-      newActive.classList.add('fade-in')
-      newActive.classList.add('is-active')
-      oldActive.classList.remove('is-active')
-    }, 500)
+      newActive.classList.remove('fade-out');
+      newActive.classList.add('fade-in');
+      newActive.classList.add('is-active');
+      oldActive.classList.remove('is-active');
+    }, 500);
   }
-})()
-
-// не реализован fade-out
+})();
 
 // drop menus
 
-const dropMenuBtns = document.querySelectorAll('.account')
-const dropMenuNoAuth = document.querySelector('.no-auth')
-const dropMenuWithAuth = document.querySelector('.with-auth')
-const popupCloseIcon = document.querySelectorAll('.close-popup')
-const timeout = 500 // таймаут для блокировки скролла
+const dropMenuBtn = document.querySelector('.header-account');
+const dropMenuNoAuth = document.querySelector('.no-auth');
+const dropMenuWithAuth = document.querySelector('.with-auth');
+const timeout = 500; // таймаут для блокировки скролла
+
+if (dropMenuBtn) {
+  dropMenuBtn.addEventListener('click', (e) => {
+    dropMenuNoAuth.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('.no-auth') && !e.target.closest('.header-account') && !e.target.classList.contains('header-account')) {
+      dropMenuNoAuth.classList.remove('open');
+    }
+  });
+}
+
+// modals
+
+const modal = document.querySelector('.modal');
+
+if (modal) {
+  let isOpenModalReg = false; // check for open modal register
+  // all of modal for register
+  const regModal = document.querySelector('.modal-reg');
+  const reModalContent = document.querySelector('.modal-reg-wrap');
+  // buttons for register modal
+  const dropNARegBtn = document.querySelector('.log-reg'); // in drop no auth
+  const closeModalRegBtn = document.querySelector('.modal-btn-close');
+  const loginInRegModal = document.querySelector('.modal-reg-btn-foot');
+  const cardRegBtn = document.querySelector('.get-acc-reg');
+
+  let isOpenModalLog = false; // check for open modal login
+  // elements for login modal
+  const logModal = document.querySelector('.modal-log');
+  const logModalContent = document.querySelector('.modal-log-wrap');
+  // buttons for login modal
+  const dropNALogBtn = document.querySelector('.log-log');
+  const cardLogBtn = document.querySelector('.get-acc-log');
+  const closeModalLogBtn = document.querySelector('.modal-btn-close-log');
+  const regInLogModal = document.querySelector('.modal-reg-btn-foot');
+
+  // ---------------------------------------------------------------------------
+
+  // open register modal
+  function openRegModal() {
+    regModal.classList.add('open-modal-reg');
+    document.body.classList.add('lock');
+    isOpenModalReg = true;
+  };
+  // close register modal
+  function closeRegModal() {
+    regModal.classList.remove('open-modal-reg');
+    document.body.classList.remove('lock');
+    isOpenModalReg = false;
+  };
+
+  // open login modal
+  function openLogModal() {
+    logModal.classList.add('open-modal-log');
+    document.body.classList.add('lock');
+    isOpenModalLog = true;
+  };
+  // close login modal
+  function closeLogModal() {
+    logModal.classList.remove('open-modal-log');
+    document.body.classList.remove('lock');
+    isOpenModalLog = false;
+  };
+
+  // ---------------------------------------------------------------------------
+
+  // user are not registered or not auth => open reg modal
+  if (localStorage.getItem('userRegistered') !== 'true' || localStorage.getItem('userAuthorized') !== 'true') {
+
+    // click on regBtn in dropNoAuth
+    dropNARegBtn.addEventListener('click', (e) => {
+      openRegModal();
+      e.stopPropagation();
+      dropMenuNoAuth.classList.remove('open');
+    });
+
+    // click on 'singup'btn in library card section
+    cardRegBtn.addEventListener('click', (e) => {
+      openRegModal();
+      e.stopPropagation();
+      dropMenuNoAuth.classList.remove('open');
+    });
+
+    // close reg modal 'X'
+    closeModalRegBtn.addEventListener('click', closeRegModal);
+
+    // close reg modal with click outZone
+    document.addEventListener('click', (e) => {
+      if (isOpenModalReg === true && !e.target.closest('.modal-reg-wrap')) {
+        closeRegModal();
+      }
+    });
+
+    // click on 'login' in reg modal => open login modal ------------- don`t work
+    loginInRegModal.addEventListener('click', (e) => {
+      console.log(loginInRegModal);
+      closeRegModal();
+      openLogModal();
+      e.stopPropagation();
+    });
+  }
+
+  // ---------------------------------------------------------------------------
+  
+  // not auth => open login modal
+  if (localStorage.getItem('userAuthorized') !== true) {
+
+    // click on login btn in dropMenu 
+    dropNALogBtn.addEventListener('click', (e) => {
+      openLogModal();
+      e.stopPropagation();
+      dropMenuNoAuth.classList.remove('open');
+    });
+
+    // click on login btn in library card section
+    cardLogBtn.addEventListener('click', (e) => {
+      openLogModal();
+      e.stopPropagation();
+      dropMenuNoAuth.classList.remove('open');
+    });
+
+    // click on 'X' btn in login modal
+    closeModalLogBtn.addEventListener('click', closeLogModal);
+
+    // close login modal with click outZone
+    document.addEventListener('click', (e) => {
+      if (isOpenModalLog === true && !e.target.closest('.modal-log-wrap')) {
+        closeLogModal();
+      }
+    });
+
+    // click on register btn in login modal => open register modal ------------- don`t work
+    regInLogModal.addEventListener('click', (e) => {
+      closeLogModal();
+      openRegModal();
+      e.stopPropagation();
+    });
+  }
+
+  // ---------------------------------------------------------------------------
+
+  // user are not auth, click on but btn => open login modal
+  if (localStorage.getItem('userAuthorized') !== true) {
+    const buyBtns = document.querySelectorAll('.buy-btn');
+
+    buyBtns.forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        openLogModal();
+        e.stopPropagation();
+      });
+    });
+  }
+
+  // ---------------------------------------------------------------------------
+
+  //buy card modal
+  const buyCardModal = document.querySelector('.modal-buy-card');
+  const closeBCModal = document.querySelector('.modal-buy-close');
+  const buyCardBtn = document.querySelector('.buy-card-btn');
+  const buyBookBtns = document.querySelectorAll('.buy-btn');
+  
+  let isOpenBuyCardModal = false;
+
+  function openBuyCardModal() {
+    buyCardModal.classList.add('modal-buy-card-open');
+    document.body.classList.add('lock');
+    isOpenBuyCardModal = true;
+  }
+
+  function closeBuyCardModal() {
+    buyCardModal.classList.remove('modal-buy-card-open');
+    document.body.classList.remove('lock');
+    isOpenBuyCardModal = false;
+  }
+
+  closeBCModal.addEventListener('click', closeBuyCardModal);
+
+  document.addEventListener('click', (e) => {
+    if (isOpenBuyCardModal === true && !e.target.closest('.modal-buy-card')) {
+      closeBuyCardModal();
+    }
+  });
+
+  // user auth, click on buy btn => open BCModal
+  if (localStorage.getItem('userAuthorized') === true && localStorage.getItem('userSubs') === 'false') {
+    buyBookBtns.forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        openBuyCardModal();
+        e.stopPropagation();
+      });
+    });
+  }
+  
+}
+
+// ---------------------------------------------------------------------------
+
+// registration
+
+const regForm = document.querySelector('.form-reg');
+// inputs
+const regNameInpt = document.querySelector('.reg-name');
+const regLastNameInpt = document.querySelector('.reg-lastname');
+const regEmailInpt = document.querySelector('.reg-mail');
+const regPassInpt = document.querySelector('.reg-pass');
+// submit btn
+const regFormBtn = document.querySelector('.reg-btn-signup');
+
+// visits counter
+const  visitsCounter = (userVisits) => {
+  userVisits++;
+  localStorage.setItem('userVisits', userVisits)
+}
+
+regFormBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  document.body.classList.add('lock');
+
+  //get from inputs
+  let regNameValue = regNameInpt.value.split(/\s+/).join(''); // removing any spaces
+  let regLastNameValue = regLastNameInpt.value.split(/\s+/).join('');
+  let regEmailValue = regEmailInpt.value.toLowerCase().split(/\s+/).join('');
+  let regPassValue = regPassInpt.value.split(/\s+/).join('');
+
+  //validation
+  let isValidRegFormNotCorrect = false;
+
+  if (regNameValue === '') {
+    alert('Заполните поле "Name"');
+    isValidRegFormNotCorrect = true;
+  } else {
+    regNameValue = `${regNameValue[0].toUpperCase()}${regNameValue.slice(1).toLowerCase()}`;
+    localStorage.setItem('userName', regNameValue);
+  }
+
+  if (regLastNameValue === '') {
+    alert('Заполните поле "Last Name"');
+    isValidRegFormNotCorrect = true;
+  } else {
+    regLastNameValue = `${regLastNameValue[0].toUpperCase()}${regLastNameValue.slice(1).toLowerCase()}`;
+    localStorage.setItem('userLastName', regLastNameValue);
+  }
+
+  if (regEmailValue === '') {
+    alert('Заполните поле "E-mail"');
+    isValidRegFormNotCorrect = true;
+  } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+$/.test(regEmailValue)) {
+    alert('Введите корректный адрес электронной почты');
+    isValidRegFormNotCorrect = true;
+  } else {
+    localStorage.setItem('userEmail', regEmailValue);
+  }
+
+  if (regPassValue === '') {
+    alert('Заполните поле "Password"');
+    isValidRegFormNotCorrect = true;
+  } else if (regPassValue.length < 8) {
+    alert('Пароль должен содержать не менее 8 символов');
+    isValidRegFormNotCorrect = true;
+  } else {
+    localStorage.setItem('userPassword', regPassValue);
+  }
+
+  // if got some issues => back to start
+
+  if (isValidRegFormNotCorrect === true) {
+    return;
+  }
+
+  //after registration => close reg form
+  regFormBtn.addEventListener('click', () => {
+    closeRegModal();
+  });
+
+  localStorage.removeItem('userVisits'); //removin counters
+
+  let userVisits = Number(localStorage.getItem('userVisits')); // counter for user
+
+  visitsCounter(userVisits); // increasing count by 1
+
+  localStorage.setItem('userSubs', false);
+  localStorage.setItem('userOwnedBooks', 0);
+
+  location.reload() // refreshing page
+
+  // generate card number
+  let cardNumber = Math.floor(Math.random() * 0xFFFFFFF).toString(16).padStart(9, '0');
+  localStorage.setItem('cardNumber', cardNumber);
+
+  localStorage('userRegistered', true);
+  localStorage('userAuthorized', true);
+});
+
+regFormBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+});

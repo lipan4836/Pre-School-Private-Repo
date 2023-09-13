@@ -37,8 +37,8 @@
             <div class="drop-menu-line"></div>
           </div>
           <div class="drop-menu-btn">
-            <button class="login">Log In</button>
-            <button class="login">Register</button> 
+            <button class="login log-log">Log In</button>
+            <button class="login log-reg">Register</button> 
           </div>
         </div>
         <div class="drop-menu with-auth popup" id="drop_auth">
@@ -520,8 +520,8 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
                 You will be able to see a reader card after logging into account or you can register a new account
               </p>
               <div class="get-account">
-                <button class="btn-account account">Sign Up</button>
-                <button class="btn-account account">Log in</button>
+                <button class="btn-account account get-acc-reg">Sign Up</button>
+                <button class="btn-account account get-acc-log">Log in</button>
               </div>
             </div>
             <div class="get-card-log">
@@ -578,35 +578,35 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
       </div>
     </div>
   </footer>
-  <div class="modal-reg popup" id="register">
+  <div class="modal modal-reg" id="register">
     <div class="modal-reg-wrap">
       <span class="modal-reg-head">REGISTER</span>
-      <form action="" class="form-reg">
+      <form action="" class="form-reg" id="register-form">
         <div class="reg-form-wrap">
           <label class="reg-label" for="">
             First name
-            <input class="reg-input" type="text">
+            <input class="reg-input reg-name" type="text">
           </label>
           <label class="reg-label" for="">
             Last name
-            <input class="reg-input" type="text">
+            <input class="reg-input reg-lastname" type="text">
           </label>
           <label class="reg-label" for="">
             E-mail
-            <input class="reg-input" type="text">
+            <input class="reg-input reg-mail" type="text">
           </label>
           <label class="reg-label" for="">
             Password
-            <input class="reg-input"  type="text">
+            <input class="reg-input reg-pass"  type="password">
           </label>
         </div>
-        <button class="reg-btn-signup">Sing Up</button>
+        <button class="reg-btn-signup" type="submit">Sing Up</button>
       </form>
       <div class="modal-reg-foot">
         <p class="modal-reg-foot-text">Already have an account?</p>
         <button class="modal-reg-btn-foot">Login</button>
       </div>
-      <button class="modal-btn-close close-popup">
+      <button class="modal-btn-close close-modal">
         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
           <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
           <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
@@ -614,7 +614,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
       </button>
     </div>
   </div>
-  <div class="modal-log popup" id="login">
+  <div class="modal modal-log" id="login">
     <div class="modal-log-wrap">
       <span class="modal-reg-head">LOGIN</span>
       <form action="" class="form-reg">
@@ -634,7 +634,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
         <p class="modal-reg-foot-text">Don`t have an account?</p>
         <button class="modal-reg-btn-foot">Registr</button>
       </div>
-      <button class="modal-btn-close-log close-popup">
+      <button class="modal-btn-close-log close-modal">
         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
           <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
           <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
@@ -642,7 +642,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
       </button>
     </div>
   </div>
-  <div class="modal-prof popup" id="profile">
+  <div class="modal modal-prof" id="profile">
     <div class="prof-name">
       <div class="prof-avatar">jd</div>
       <div class="prof-name-text">Jonh Doe</div>
@@ -681,7 +681,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
           <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
         </svg>
       </div>
-      <button class="modal-btn-prof-close close-popup">
+      <button class="modal-btn-prof-close close-modal">
         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
           <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
           <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
@@ -689,11 +689,11 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
       </button>
     </div>
   </div>
-  <div class="modal-buy-card popup" id="buy_card">
+  <div class="modal modal-buy-card" id="buy_card">
     <div class="modal-buy-wrap">
       <div class="modal-buy-header">
         <p class="buy-head">BUY A LIBRARY CARD</p>
-        <button class="modal-buy-close close-popup">
+        <button class="modal-buy-close close-modal">
           <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
             <path d="M2 16.8507L17 2.00003" stroke="#FFF" stroke-width="3"/>
             <path d="M2 2.14926L17 17" stroke="#FFF" stroke-width="3"/>
@@ -719,7 +719,7 @@ You can get a favorite book and read in coffee shop. Our barista to cook you bes
             <span class="buy-form-text">City / Town</span>
             <input type="text" class="buy-form-input">
             <div class="submit-buy">
-              <button class="buy-btn">Buy</button>
+              <button class="buy-btn buy-card-btn">Buy</button>
               <span class="price">$ 25.00</span>
             </div>
           </form>
