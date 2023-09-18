@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "copyfiles": "^2.4.1",
+    "normalize.css": "^8.0.1"
+  },
+  "scripts": {
+    "install": "copyfiles --flat ./node_modules/normalize.css/normalize.css ./audio-player/"
+  }
+}

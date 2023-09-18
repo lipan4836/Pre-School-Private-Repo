@@ -1,0 +1,50 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+time, a {
+  font-size: 1.25rem;
+  color: antiquewhite;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+a:hover {
+  color: #f53030;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  margin: auto 0;
+}
+
+.player-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+  height: 40vh;
+  background-color: #e43333;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-wrap {
+  width: 75vw;
+  display: flex;
+  justify-content: space-around;
+  padding: 2vmin;
+  background: #000;
+  margin: 2vmin;
+  border-radius: 30px;
+}
