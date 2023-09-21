@@ -9,10 +9,14 @@ const volSlider = document.querySelector('.volume-slider');
 //timeline
 const timeLine = document.querySelector('.duration');
 const timeDigits = document.querySelector('.timeline-digits');
+const trackLength = document.querySelector('.duration-digits');
 
 // title and cover
 let blockName = document.querySelector('.player__bottom-song');
 let blockCover = document.querySelector('.song-img');
+
+// visualization
+
 
 let timer = 0; // timer for song
 
@@ -61,23 +65,24 @@ function loadTrack(playNum) {
 loadTrack(playNum);
 
 // play / pause functions
-function play(){
+function play() {
+  context.state = 'running';
   track.play();
   isPlay = true;
   playBtn.classList.add('playing');
-  console.log('playNum', playNum);
-  console.log('path', playList[playNum].path);
 }
 
 function pause() {
+  context.state = 'suspended';
   track.pause();
   isPlay = false;
   playBtn.classList.remove('playing');
-  console.log('playNum', playNum);
-  console.log('path', playList[playNum].path);
 }
 
 function playAudio() {
+  // checkAudioCtx();
+  console.log('состояние контекста PLAY', context.state);
+
   if (!isPlay) {
     play();
   } else {
@@ -89,14 +94,18 @@ function playNext() {
   playNum += 1;
   if (playNum > playList.length - 1) playNum = 0;
   loadTrack(playNum);
+  context.state = 'running';
   play();
+  console.log('состояние контекста NEXT', context.state);
 }
 
 function playPrev() {
   playNum -= 1;
   if (playNum < 0) playNum = playList.length - 1;
   loadTrack(playNum);
+  context.state = 'running';
   play();
+  console.log('состояние контекста PREV', context.state);
 }
 
 // changing time slider
@@ -119,6 +128,7 @@ function timeSlider() {
   }
 
   timeDigits.textContent = getTimeCodeFromNum(track.currentTime);
+  trackLength.textContent = getTimeCodeFromNum(track.duration);
 }
 
 // changing volume
@@ -149,3 +159,45 @@ function getTimeCodeFromNum(num) {
   }
   return `${String(hours).padStart(2, 0)}:${minutes}:${String(seconds % 60).padStart(2, 0)}`;
 }
+
+// visualization
+const canvas = document.querySelector('canvas');
+
+const ctx = canvas.getContext('2d');
+const context = new AudioContext();
+const analyser = context.createAnalyser();
+const source = context.createMediaElementSource(track);
+
+const fbc_array = new Uint8Array(analyser.frequencyBinCount);
+
+window.addEventListener('load', () => {
+  source.connect(analyser);
+  analyser.connect(context.destination);
+
+  loop();
+}, false);
+
+function loop() {
+  window.requestAnimationFrame(loop);
+  analyser.getByteFrequencyData(fbc_array);
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = `#000`;
+
+  let barX, barWidth, barHeight, bars = 100;
+
+  for (let i = 0; i < bars; i++) {
+    barX = i * 3;
+    barWidth = 2;
+    barHeight = -(fbc_array[i] / 2);
+    ctx.fillRect(barX, canvas.height, barWidth, barHeight);
+  }
+}
+
+// function checkAudioCtx () {
+//   if (context.state === 'running') {
+//     context.suspend();
+//   } else if (context.state === 'suspended') {
+//     context.resume();
+//   }
+// }
