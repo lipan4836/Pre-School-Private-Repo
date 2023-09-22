@@ -51,7 +51,9 @@ const playList = [
 const container = document.querySelector('body');
 
 function changeBackground() {
-  container.style.backgroundImage = `url(${playList[playNum].cover})`;
+  setTimeout(el =>{
+    container.style.backgroundImage = `url(${playList[playNum].cover})`;
+  }, 1000);  
 }
 
 // loading content
