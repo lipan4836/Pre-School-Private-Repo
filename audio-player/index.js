@@ -47,6 +47,18 @@ const playList = [
   },
 ];
 
+// background
+const container = document.querySelector('.container');
+console.log('container', container);
+
+function changeBackground() {
+  container.style.backgroundImage = `url(${playList[playNum].cover})`;
+  // container.style.backgroundPosition = 'center';
+  // container.style.backgroundRepeat = 'no-repeat';
+  // container.style.backgroundSize = 'cover';
+  // container.state.backdropFilter = 'blur(10px)';
+}
+
 function loadTrack(playNum) {
   clearInterval(timer);
   resetSlider();
@@ -54,6 +66,7 @@ function loadTrack(playNum) {
   track.src = playList[playNum].path;
   blockName.innerHTML = playList[playNum].title;
   blockCover.src = playList[playNum].cover;
+  changeBackground();
 
   track.load();
   timer = setInterval(timeSlider, 1000);
@@ -128,8 +141,11 @@ function timeSlider() {
   }
 
   timeDigits.textContent = getTimeCodeFromNum(track.currentTime);
-  trackLength.textContent = getTimeCodeFromNum(track.duration);
 }
+
+track.addEventListener('loadedmetadata', () => {
+  trackLength.textContent = getTimeCodeFromNum(track.duration);
+});
 
 // changing volume
 function volumeChange() {
@@ -167,6 +183,7 @@ const ctx = canvas.getContext('2d');
 const context = new AudioContext();
 const analyser = context.createAnalyser();
 const source = context.createMediaElementSource(track);
+const woofers = document.querySelectorAll('.woofer-cup');
 
 const fbc_array = new Uint8Array(analyser.frequencyBinCount);
 
@@ -182,7 +199,7 @@ function loop() {
   analyser.getByteFrequencyData(fbc_array);
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = `#000`;
+  ctx.fillStyle = `antiquewhite`;
 
   let barX, barWidth, barHeight, bars = 100;
 
@@ -192,7 +209,14 @@ function loop() {
     barHeight = -(fbc_array[i] / 2);
     ctx.fillRect(barX, canvas.height, barWidth, barHeight);
   }
+
+  woofers.forEach(el => {
+    el.style.height = (fbc_array[20] * 0.45) + 'px';
+    el.style.width = (fbc_array[20] * 0.45) + 'px';
+  })
 }
+
+
 
 // function checkAudioCtx () {
 //   if (context.state === 'running') {
