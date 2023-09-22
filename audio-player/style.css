@@ -32,7 +32,7 @@ main {
 .speaker {
   width: 250px;
   height: 400px;
-  background: #555;
+  background: linear-gradient(135deg, #5A491B, #0F0F0F);
   border: 5px solid #222;
   border-radius: 10px;
   padding: 10px;
@@ -163,7 +163,8 @@ main {
   border: solid 2px #000;
   box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 4px 2px rgba(0, 0, 0, 0.2);
 }
-.fa.fa-play {
+.fa.fa-play,
+.fa.fa-pause {
   line-height: 88px;
 }
 .fa {
@@ -179,7 +180,8 @@ main {
   color: rgb(230, 48, 35);
   text-shadow: 0 0 4px rgb(230, 48, 35);
 }
-.fa-play {
+.fa-play,
+.fa-pause {
   font-size: 2.5rem;
   top: 50%;
   left: 50%;
