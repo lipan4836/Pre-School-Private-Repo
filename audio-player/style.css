@@ -1,5 +1,10 @@
 body {
   font-family: 'Montserrat', sans-serif;
+  background: url(assets/img/1-kot.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 1s ease-in;
 }
 
 time, a {
@@ -19,21 +24,8 @@ a:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: url(assets/img/1-kot.jpg);
   backdrop-filter: blur(5px);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
-
-/* .background-img {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-} */
 
 main {
   margin: auto 0;
