@@ -48,17 +48,13 @@ const playList = [
 ];
 
 // background
-const container = document.querySelector('.container');
-console.log('container', container);
+const container = document.querySelector('body');
 
 function changeBackground() {
   container.style.backgroundImage = `url(${playList[playNum].cover})`;
-  // container.style.backgroundPosition = 'center';
-  // container.style.backgroundRepeat = 'no-repeat';
-  // container.style.backgroundSize = 'cover';
-  // container.state.backdropFilter = 'blur(10px)';
 }
 
+// loading content
 function loadTrack(playNum) {
   clearInterval(timer);
   resetSlider();
@@ -94,8 +90,6 @@ function pause() {
 }
 
 function playAudio() {
-  console.log('состояние контекста PLAY', context.state);
-
   if (!isPlay) {
     play();
   } else {
@@ -109,7 +103,6 @@ function playNext() {
   loadTrack(playNum);
   context.resume();
   play();
-  console.log('состояние контекста NEXT', context.state);
 }
 
 function playPrev() {
@@ -118,7 +111,6 @@ function playPrev() {
   loadTrack(playNum);
   context.resume();
   play();
-  console.log('состояние контекста PREV', context.state);
 }
 
 // changing time slider
@@ -215,13 +207,3 @@ function loop() {
     el.style.width = (fbc_array[20] * 0.45) + 'px';
   })
 }
-
-
-
-// function checkAudioCtx () {
-//   if (context.state === 'running') {
-//     context.suspend();
-//   } else if (context.state === 'suspended') {
-//     context.resume();
-//   }
-// }
