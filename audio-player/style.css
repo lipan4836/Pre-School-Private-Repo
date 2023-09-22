@@ -19,15 +19,30 @@ a:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background: url(assets/img/1-kot.jpg);
+  backdrop-filter: blur(5px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+/* .background-img {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+} */
 
 main {
   margin: auto 0;
 }
 
-/* .player {
-  display: none;
-} */
+.player {
+  position: relative;
+  z-index: 6;
+}
 
 .speaker {
   width: 250px;
@@ -91,8 +106,17 @@ main {
   border-radius: 100%;
   background: linear-gradient(292deg, rgba(28,28,28,1) 0%, rgba(60,60,60,1) 53%, rgba(80,80,80,1) 100%);
 }
-.speaker__bass-woofer::after {
-  content: "";
+.woofer-cup {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  background: radial-gradient(at left top, #303030, #000000);
+}
+.cup {
   width: 80px;
   height: 80px;
   position: absolute;
@@ -106,13 +130,13 @@ main {
   position: fixed;
   top: 20px;
   left: 20px;
-  z-index: -1;
+  z-index: 5;
 }
 .right-sp {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: -1;
+  z-index: 5;
 }
 
 .player-wrap {
@@ -302,7 +326,8 @@ canvas {
   width: 70vw;
   height: 150px;
   padding: 10px;
-  /* background: #000; */
+  background: #00000086;
+  border-radius: 5px;
 }
 
 footer {
