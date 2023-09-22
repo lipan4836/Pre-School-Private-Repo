@@ -1,5 +1,5 @@
 // control buttons
-const playBtn = document.querySelector('.fa-play');
+const playBtn = document.querySelector('.main-btn');
 const nextBtn = document.querySelector('.fa-forward-fast');
 const prevBtn = document.querySelector('.fa-backward-fast');
 const volUpBtn = document.querySelector('.fa-volume-high');
@@ -14,9 +14,6 @@ const trackLength = document.querySelector('.duration-digits');
 // title and cover
 let blockName = document.querySelector('.player__bottom-song');
 let blockCover = document.querySelector('.song-img');
-
-// visualization
-
 
 let timer = 0; // timer for song
 
@@ -66,21 +63,24 @@ loadTrack(playNum);
 
 // play / pause functions
 function play() {
-  context.state = 'running';
+  context.resume();
   track.play();
   isPlay = true;
+  playBtn.classList.remove('fa-play');
+  playBtn.classList.add('fa-pause');
   playBtn.classList.add('playing');
 }
 
 function pause() {
-  context.state = 'suspended';
+  context.resume();
   track.pause();
   isPlay = false;
+  playBtn.classList.remove('fa-pause');
+  playBtn.classList.add('fa-play');
   playBtn.classList.remove('playing');
 }
 
 function playAudio() {
-  // checkAudioCtx();
   console.log('состояние контекста PLAY', context.state);
 
   if (!isPlay) {
@@ -94,7 +94,7 @@ function playNext() {
   playNum += 1;
   if (playNum > playList.length - 1) playNum = 0;
   loadTrack(playNum);
-  context.state = 'running';
+  context.resume();
   play();
   console.log('состояние контекста NEXT', context.state);
 }
@@ -103,7 +103,7 @@ function playPrev() {
   playNum -= 1;
   if (playNum < 0) playNum = playList.length - 1;
   loadTrack(playNum);
-  context.state = 'running';
+  context.resume();
   play();
   console.log('состояние контекста PREV', context.state);
 }
