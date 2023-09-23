@@ -39,7 +39,7 @@ main {
 .speaker {
   width: 250px;
   height: 400px;
-  background: linear-gradient(135deg, #5A491B, #0F0F0F);
+  background: linear-gradient(311deg, rgba(28,28,28,1) 0%, rgba(60,60,60,1) 53%, rgba(121,121,121,1) 100%);
   border: 5px solid #222;
   border-radius: 10px;
   padding: 10px;
@@ -179,8 +179,7 @@ main {
   border: solid 2px #000;
   box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 4px 2px rgba(0, 0, 0, 0.2);
 }
-.fa.fa-play,
-.fa.fa-pause {
+.fa.main-btn {
   line-height: 88px;
 }
 .fa {
@@ -356,6 +355,32 @@ footer {
     padding: 20px;
   }
   time, a {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 400px) {
+  time, a {
+    font-size: 0.5rem;
+  }
+  .player-wrap {
+    width: 340px;
+    padding: 10px;
+  }
+  .player__top-cover{
+    width: 140px;
+    height: 140px;
+  }
+  .player__top-controls{
+    width: 140px;
+    height: 140px;
+  }
+  .fa.main-btn {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
+  .volume-slider{
+    width: 140px;
+    top: 170px;
   }
 }
