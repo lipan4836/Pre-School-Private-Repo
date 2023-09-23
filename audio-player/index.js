@@ -26,9 +26,9 @@ let track = document.createElement('audio');
 // playlist
 const playList = [
   {
-    path: 'assets/audio/1-kot.mp3',
-    title: 'Валентин Дядька - Подментованный кот',
-    cover: 'assets/img/1-kot.jpg',
+    path: 'assets/audio/1-512am.mp3',
+    title: 'Novelists FR - 5:12 AM',
+    cover: 'assets/img/1-512am.jpg',
   },
   {
     path: 'assets/audio/2-girl-from-osi.mp3',
@@ -44,6 +44,11 @@ const playList = [
     path: 'assets/audio/4-marfa.mp3',
     title: 'Меджикул - О, Марфа!',
     cover: 'assets/img/4-marfa.jpg',
+  },
+  {
+    path: 'assets/audio/5-komety.mp3',
+    title: 'polnalyubvi - Кометы',
+    cover: 'assets/img/5-komety.jpg',
   },
 ];
 
