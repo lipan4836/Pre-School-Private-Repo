@@ -339,6 +339,14 @@ footer {
 
 /* responsive */
 
+@media (hover: none) {
+  a:hover {
+    color: antiquewhite;
+  }
+  i:hover::before {
+    color: #000;
+  }
+}
 @media (max-width: 1000px) {
   .speaker {
     display: none;
