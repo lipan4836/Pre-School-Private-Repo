@@ -337,3 +337,25 @@ footer {
   margin: 2vmin;
   border-radius: 30px;
 }
+
+/* responsive */
+
+@media (max-width: 1000px) {
+  .speaker {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  time, a {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 560px) {
+  .player-wrap {
+    width: 400px;
+    padding: 20px;
+  }
+  time, a {
+    font-size: 0.8rem;
+  }
+}
