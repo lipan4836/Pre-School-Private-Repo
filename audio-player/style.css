@@ -7,7 +7,8 @@ body {
   transition: all 1s ease-in;
 }
 
-time, a {
+time,
+a {
   font-size: 1.25rem;
   color: antiquewhite;
   text-decoration: none;
@@ -39,7 +40,12 @@ main {
 .speaker {
   width: 250px;
   height: 400px;
-  background: linear-gradient(311deg, rgba(28,28,28,1) 0%, rgba(60,60,60,1) 53%, rgba(121,121,121,1) 100%);
+  background: linear-gradient(
+    311deg,
+    rgba(28, 28, 28, 1) 0%,
+    rgba(60, 60, 60, 1) 53%,
+    rgba(121, 121, 121, 1) 100%
+  );
   border: 5px solid #222;
   border-radius: 10px;
   padding: 10px;
@@ -57,7 +63,7 @@ main {
   position: relative;
 }
 .speaker__twitter::before {
-  content: "";
+  content: '';
   display: block;
   width: 60px;
   height: 60px;
@@ -67,7 +73,7 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   background: #303030;
-  background: radial-gradient(at left top, #303030, #0E0D0B);
+  background: radial-gradient(at left top, #303030, #0e0d0b);
 }
 .speaker__bass {
   width: 200px;
@@ -82,13 +88,18 @@ main {
 .speaker__bass-woofer {
   width: 180px;
   height: 180px;
-  background: rgb(141,141,149);
-  background: radial-gradient(circle, rgba(141,141,149,1) 0%, rgba(53,53,59,1) 60%, rgba(0,0,0,1) 85%);
+  background: rgb(141, 141, 149);
+  background: radial-gradient(
+    circle,
+    rgba(141, 141, 149, 1) 0%,
+    rgba(53, 53, 59, 1) 60%,
+    rgba(0, 0, 0, 1) 85%
+  );
   border-radius: 100%;
   position: relative;
 }
 .speaker__bass-woofer::before {
-  content: "";
+  content: '';
   width: 150px;
   height: 150px;
   position: absolute;
@@ -96,7 +107,12 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 100%;
-  background: linear-gradient(292deg, rgba(28,28,28,1) 0%, rgba(60,60,60,1) 53%, rgba(80,80,80,1) 100%);
+  background: linear-gradient(
+    292deg,
+    rgba(28, 28, 28, 1) 0%,
+    rgba(60, 60, 60, 1) 53%,
+    rgba(80, 80, 80, 1) 100%
+  );
 }
 .woofer-cup {
   width: 80px;
@@ -167,9 +183,9 @@ main {
   object-fit: cover;
   border: none;
   box-shadow: 5px 5px 5px 0px rgba(251, 255, 0, 0.2),
-              -5px 5px 5px 0px rgba(251, 255, 0, 0.2),
-              -5px -5px 5px 0px rgba(251, 255, 0, 0.2),
-              5px -5px 5px 0px rgba(251, 255, 0, 0.2);
+    -5px 5px 5px 0px rgba(251, 255, 0, 0.2),
+    -5px -5px 5px 0px rgba(251, 255, 0, 0.2),
+    5px -5px 5px 0px rgba(251, 255, 0, 0.2);
 }
 
 .player__top-controls {
@@ -177,7 +193,8 @@ main {
   border-radius: 50%;
   background: linear-gradient(0deg, #222, #111);
   border: solid 2px #000;
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 4px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    0 4px 2px rgba(0, 0, 0, 0.2);
 }
 .fa.main-btn {
   line-height: 88px;
@@ -204,7 +221,8 @@ main {
   width: 88px;
   height: 88px;
   border: solid 2px #000;
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 0 8px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    0 0 8px rgba(0, 0, 0, 0.6);
   border-radius: 100%;
   text-align: center;
   background: linear-gradient(0deg, #111, #222);
@@ -331,10 +349,22 @@ footer {
   width: 75vw;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 2vmin;
   background: #000;
   margin: 2vmin;
   border-radius: 30px;
+}
+.git-logo {
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 0 5px;
+}
+.rss-link {
+  width: 75px;
+  padding: 1px;
+  margin-left: 160px;
+  background: antiquewhite;
 }
 
 /* responsive */
@@ -353,8 +383,13 @@ footer {
   }
 }
 @media (max-width: 768px) {
-  time, a {
+  time,
+  a {
     font-size: 1rem;
+  }
+  .rss-link {
+    width: 60px;
+    margin: 0;
   }
 }
 @media (max-width: 560px) {
@@ -362,23 +397,25 @@ footer {
     width: 400px;
     padding: 20px;
   }
-  time, a {
+  time,
+  a {
     font-size: 0.7rem;
   }
 }
 @media (max-width: 400px) {
-  time, a {
+  time,
+  a {
     font-size: 0.5rem;
   }
   .player-wrap {
     width: 340px;
     padding: 10px;
   }
-  .player__top-cover{
+  .player__top-cover {
     width: 140px;
     height: 140px;
   }
-  .player__top-controls{
+  .player__top-controls {
     width: 140px;
     height: 140px;
   }
@@ -387,7 +424,7 @@ footer {
     height: 60px;
     line-height: 60px;
   }
-  .volume-slider{
+  .volume-slider {
     width: 140px;
     top: 170px;
   }
