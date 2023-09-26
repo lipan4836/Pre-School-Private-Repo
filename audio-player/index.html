@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Player</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+  <div class="container">
+    <main>
+      <div class="background">
+        <div class="speaker left-sp">
+          <div class="speaker__twitter"></div>
+          <div class="speaker__bass">
+            <div class="speaker__bass-woofer">
+              <div class="cup woofer-cup"></div>
+              <div class="cup "></div>
+            </div>
+          </div>
+        </div>
+        <div class="speaker right-sp">
+          <div class="speaker__twitter"></div>
+          <div class="speaker__bass">
+            <div class="speaker__bass-woofer">
+              <div class="woofer-cup"></div>
+              <div class="cup "></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="player">
+        <div class="player-wrap">
+          <div class="player__top">
+            <div class="player__top-cover">
+              <img class="song-img">
+            </div>
+            <div class="player__top-controls">
+              <i class="fa-solid fa fa-backward-fast" onclick="playPrev()"></i>
+              <i class="fa-solid fa fa-volume-high" onclick="volumeUp()"></i>
+              <i class="fa main-btn fa-play" onclick="playAudio()"></i>
+              <i class="fa-solid fa fa-forward-fast" onclick="playNext()"></i>
+              <i class="fa-solid fa fa-volume-low" onclick="volumeDown()"></i>
+              <input class="volume-slider" type="range" min="0" max="100" value="80" onchange="volumeChange()">
+            </div>
+          </div>
+          <div class="player__bottom">
+            <div class="player__bottom-song">Enjoy this music!</div>
+            <hr>
+            <div class="player__bottom-timeline">
+              <div class="timeline-slider">
+                <div class="timer">
+                  <div class="timer__bg">
+                    <input class="duration" type="range" min="0" max="100" value="0" onchange="timelineChange()">
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-digits-wrap">
+                <div class="digits timeline-digits">0:00</div>
+                <div class="digits slash">/</div>
+                <div class="digits duration-digits">0:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <canvas></canvas>
+      <div class="footer-wrap">
+        <time class="year" datetime="2023-09">2023</time>
+        <a class="rss-link" href="https://rs.school/js-stage0/" target="_blank"><img class="rss-logo" src="assets/img/rs_school_js.svg" alt="RSS link"></a>
+        <a class="git-link" href="https://github.com/lipan4836" target="_blank">Anton Dmitriev<img class="git-logo" src="assets/img/github-mark-white.svg" alt=""></a>
+      </div>
+    </footer>
+  </div>
+  <script src="https://kit.fontawesome.com/9a589e77e4.js" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+</body>
+</html>
