@@ -1,14 +1,10 @@
-// get hided api key for unslpash
-import './env.js';
-const secretKey = window.env.SECRET_KEY;
-const apiKey = window.env.API_KEY;
-
 // inputs
 const form = document.querySelector('.header__right');
 const searchInput = document.querySelector('.search');
 const searchBtn = document.querySelector('.search-btn');
 const searchResults = document.querySelector('.container');
 const showMoreBtn = document.querySelector('.show-more-btn');
+const apiKey = 'ai8aJK-efo0saOGfga1MIjYxIuEhNg7DrOiftfKK3bg';
 
 let inputData = '';
 let page = 1;
@@ -30,7 +26,7 @@ async function searchImage() {
     const imageWrapper = document.createElement('div');
     imageWrapper.classList.add('search-result');
     const image = document.createElement('img');
-    image.src = result.urls.small;
+    image.src = result.urls.regular;
     image.alt = result.alt_description;
 
     imageWrapper.appendChild(image);
@@ -54,3 +50,19 @@ form.addEventListener('submit', e => {
 showMoreBtn.addEventListener('click', e => {
   searchImage();
 });
+
+if (inputData === '') {
+  searchInput.addEventListener('input', () => {
+    searchBtn.style.display = 'block';
+  })
+}
+
+searchInput.addEventListener('input', () => {
+  inputData === '' ? searchBtn.style.display = 'none' : searchBtn.style.display = 'block';
+});
+
+// if (inputData !== '') {
+//   searchBtn.style.display = 'none';
+// } else {
+//   searchBtn.style.display = 'block';
+// }
