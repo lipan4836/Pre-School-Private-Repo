@@ -56,29 +56,39 @@ h1::before {
 
 .header__right {
   position: relative;
+  transform: translateX(-35px);
+  background: #fff;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .search {
   width: 258px;
   height: 2rem;
   border: none;
-  border-radius: 1rem;
   padding: 0 1rem;
+  background: transparent;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .search-btn {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 32px;
   cursor: pointer;
   background: transparent;
   border: none;
   position: absolute;
-  top: -3px;
-  right: 3px;
+  top: 0px;
+  right: -35px;
   transition: all 0.2s ease-in;
+  background: #fff;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  z-index: -1;
 }
 .search-btn:hover {
   transform: translateX(-30%);
