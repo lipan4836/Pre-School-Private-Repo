@@ -11,13 +11,32 @@ let page = 1;
 
 async function searchImage() {
   inputData = searchInput.value;
+  if (inputData === '') {
+    const randomQuery = ['car', 'anime', 'cosplay', 'drift', 'frontend', 'food', 'drink', 'space', 'japan', 'nature'];
+    let rand = Math.floor(Math.random() * randomQuery.length);
+
+    fetchQuery(randomQuery[rand]);
+    console.log('random');
+  } else {
+    fetchQuery(inputData);
+    console.log('inputData');
+  }
+}
+
+async function fetchQuery(inputData) {
   const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${apiKey}`;
 
   const response = await fetch(url);
   const data = await response.json();
+  console.log('data', data);
 
   const results = data.results;
+  console.log('results', results);
 
+  showImage(results);
+}
+
+function showImage(results) {
   if (page === 1) {
     searchResults.innerHTML = '';
   }
@@ -50,19 +69,3 @@ form.addEventListener('submit', e => {
 showMoreBtn.addEventListener('click', e => {
   searchImage();
 });
-
-if (inputData === '') {
-  searchInput.addEventListener('input', () => {
-    searchBtn.style.display = 'block';
-  })
-}
-
-searchInput.addEventListener('input', () => {
-  inputData === '' ? searchBtn.style.display = 'none' : searchBtn.style.display = 'block';
-});
-
-// if (inputData !== '') {
-//   searchBtn.style.display = 'none';
-// } else {
-//   searchBtn.style.display = 'block';
-// }
