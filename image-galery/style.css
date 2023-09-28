@@ -7,6 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -52,6 +53,7 @@ h1::before {
   display: flex;
   gap: 10px;
   align-items: center;
+  cursor: pointer;
 }
 
 .header__right {
@@ -91,7 +93,7 @@ h1::before {
   z-index: -1;
 }
 .search-btn:hover {
-  transform: translateX(-30%);
+  transform: translateX(-5%);
 }
 
 .search-logo {
@@ -99,7 +101,6 @@ h1::before {
 }
 
 main {
-  min-height: 80vh;
   overflow-y: auto;
 }
 
@@ -141,8 +142,15 @@ main {
   color: #fff;
 }
 
+.search-result > img {
+  transition: all 0.8s ease-in-out;
+}
+.search-result > img:hover {
+  transform: scale(125%);
+}
+
 footer {
-  height: 80px;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
