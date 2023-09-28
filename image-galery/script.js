@@ -1,4 +1,3 @@
-// inputs
 const form = document.querySelector('.header__right');
 const searchInput = document.querySelector('.search');
 const searchBtn = document.querySelector('.search-btn');
@@ -16,10 +15,8 @@ async function searchImage() {
     let rand = Math.floor(Math.random() * randomQuery.length);
 
     fetchQuery(randomQuery[rand]);
-    console.log('random');
   } else {
     fetchQuery(inputData);
-    console.log('inputData');
   }
 }
 
@@ -28,15 +25,14 @@ async function fetchQuery(inputData) {
 
   const response = await fetch(url);
   const data = await response.json();
-  console.log('data', data);
 
   const results = data.results;
-  console.log('results', results);
+  const totalPages = data.total_pages;
 
-  showImage(results);
+  showImage(results, totalPages);
 }
 
-function showImage(results) {
+function showImage(results, totalPages) {
   if (page === 1) {
     searchResults.innerHTML = '';
   }
@@ -47,15 +43,17 @@ function showImage(results) {
     const image = document.createElement('img');
     image.src = result.urls.regular;
     image.alt = result.alt_description;
-
+    
     imageWrapper.appendChild(image);
     searchResults.appendChild(imageWrapper);
   });
 
   page++;
 
-  if (page > 1) {
+  if (totalPages - page > 1) {
     showMoreBtn.style.display = 'block';
+  } else {
+    showMoreBtn.style.display = 'none';
   }
 }
 
