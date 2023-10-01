@@ -74,6 +74,10 @@ h1::before {
   border-bottom-left-radius: 1rem;
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
 .search-btn {
   display: flex;
   justify-content: flex-end;
@@ -123,6 +127,12 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.no-images {
+  font-size: 3rem;
+  color: #fff;
+  margin: 0 auto;
 }
 
 .show-more-btn {

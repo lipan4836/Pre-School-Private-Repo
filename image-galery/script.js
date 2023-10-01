@@ -28,6 +28,8 @@ async function fetchQuery(inputData) {
 
   const results = data.results;
   const totalPages = data.total_pages;
+  console.log('data', data);
+  console.log('results', results);
 
   showImage(results, totalPages);
 }
@@ -37,19 +39,25 @@ function showImage(results, totalPages) {
     searchResults.innerHTML = '';
   }
 
-  results.map(result => {
-    const imageWrapper = document.createElement('div');
-    imageWrapper.classList.add('search-result');
-    const image = document.createElement('img');
-    image.src = result.urls.regular;
-    image.alt = result.alt_description;
-    
-    imageWrapper.appendChild(image);
-    searchResults.appendChild(imageWrapper);
-  });
-
-  page++;
-
+  if (totalPages === 0) {
+    const noImages = document.createElement('div');
+    noImages.classList.add('no-images');
+    noImages.innerText = `Sorry, but there is no "${inputData}" image. Try something else!`;
+    searchResults.appendChild(noImages);
+  } else {
+    results.map(result => {
+      const imageWrapper = document.createElement('div');
+      imageWrapper.classList.add('search-result');
+      const image = document.createElement('img');
+      image.src = result.urls.regular;
+      image.alt = result.alt_description;
+      
+      imageWrapper.appendChild(image);
+      searchResults.appendChild(imageWrapper);
+    });
+  
+    page++;
+  }
   if (totalPages - page > 1) {
     showMoreBtn.style.display = 'block';
   } else {
