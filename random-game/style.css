@@ -75,6 +75,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   border: 2px solid #383330;
+  perspective: 1000px;
 }
 
 .memory-card {
@@ -83,10 +84,16 @@ main {
   position: relative;
   margin: 5px;
   transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
 }
 .memory-card:active {
   transform: scale(0.97);
   transition: transform 0.1s ease-in;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
 }
 
 .front-face,
@@ -95,6 +102,11 @@ main {
   border: 2px solid #fc3737;
   position: absolute;
   border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
 }
 
 /* ---------- footer ---------- */
