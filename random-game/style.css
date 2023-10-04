@@ -23,7 +23,7 @@ body {
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -57,11 +57,16 @@ main {
 
 .tv__screen {
   width: 100%;
-  height: 540px;
+  height: 600px;
   background: #000;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid #000;
+  background-image: url(assets/img/cringe-wlppr.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .tv__brand {
@@ -69,20 +74,69 @@ main {
   font-weight: 700;
 }
 
+.tv__screen-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.pc-icon,
+.game-icon {
+  width: 56px;
+  padding: 5px;
+  border: 1px dotted #000;
+  background-color: #00000050;
+}
+
+.tv__screen-gameicon {
+  position: absolute;
+  top: 390px;
+  left: 160px;
+  cursor: pointer;
+}
+
+.game-name {
+  font-size: 14px;
+  color: #000;
+  background: #fff;
+  text-align: center;
+  border: 1px dotted #000;
+}
+
+.hide-icons {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .memory-container {
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
   border: 2px solid #383330;
   perspective: 1000px;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.start-game{
+  opacity: 1;
+  visibility: visible;
 }
 
 .memory-card {
   width: 17%;
-  height: 17%;
+  height: 23%;
   position: relative;
-  margin: 5px;
+  margin: 1px;
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform 0.5s;

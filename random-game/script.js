@@ -1,7 +1,22 @@
+const pcIcons = document.querySelectorAll('.pc-icons');
+const gameContainer = document.querySelector('.memory-container');
 const cards = document.querySelectorAll('.memory-card');
+
+pcIcons[1].addEventListener('click', startGame);
+
+function startGame() {
+  pcIcons.forEach(el => {
+    el.classList.add('hide-icons');
+  });
+
+  gameContainer.classList.add('start-game');
+}
+
+// -------------------------------------- game -----------------------------------------------------
 
 let hasCardFlipped = false;
 let lockBoard = false;
+let openedCards = 0;
 let firstCard, secondCard;
 
 function flipCard() {
@@ -34,7 +49,11 @@ function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
 
+  openedCards = openedCards + 2;
+  console.log('openedCards', openedCards);                        // -----------------------------------
+
   resetBoard();
+  gameOver();
 }
 
 function unflipCards() {
@@ -53,6 +72,10 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
+function gameOver() {
+  if (openedCards === 20) console.log('finish!!')
+}
+
 (function shuffleCards() {
   cards.forEach(card => {
     let randPos = Math.floor(Math.random() * 12);
@@ -61,3 +84,4 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+// -----------------------------------------------------------------------------------------------
