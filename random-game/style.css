@@ -72,6 +72,7 @@ main {
 .tv__brand {
   font-size: 18px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .tv__screen-icons {

@@ -11,3 +11,6 @@ Private repository for @lipan4836
 
 ### Image-galery
 <https://rolling-scopes-school.github.io/lipan4836-JSFEPRESCHOOL2023Q2/image-galery/>
+
+### Random game
+<https://rolling-scopes-school.github.io/lipan4836-JSFEPRESCHOOL2023Q2/random-game/>
