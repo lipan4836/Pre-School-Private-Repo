@@ -1,6 +1,10 @@
 const pcIcons = document.querySelectorAll('.pc-icons');
 const gameContainer = document.querySelector('.memory-container');
 const cards = document.querySelectorAll('.memory-card');
+const endGameMenu = document.querySelector('.tv__screen-lastmenu');
+const scoreShow = document.querySelector('.win-score');
+
+const newGameBtn = document.querySelector('.win-btn');
 
 // audio effects
 const clickSound = new Audio('assets/sound/click.mp3');
@@ -8,7 +12,8 @@ const matchSound = new Audio('assets/sound/dsbl-cards.mp3');
 const endGameSound = new Audio('assets/sound/gameover.mp3');
 
 let gamesCounter = 0;
-let leaderBoard = [];
+let localBoard = [];
+let totalBoard = [];
 
 pcIcons[1].addEventListener('click', startGame);
 
@@ -18,6 +23,7 @@ function startGame() {
   });
 
   gameContainer.classList.add('start-game');
+  endGameMenu.classList.remove('gameover');
 
   gamesCounter += 1;
 }
@@ -82,7 +88,7 @@ function unflipCards() {
     secondCard.classList.remove('flip');
 
     resetBoard();
-  }, 1500);
+  }, 1000);
 }
 
 function resetBoard() {
@@ -96,27 +102,40 @@ function gameOver() {
 
     endGameSound.play();
 
-    let totalBoard = JSON.parse(localStorage.getItem('leaders'));
+    scoreShow.textContent = `${steps}`;
+    totalBoard = JSON.parse(localStorage.getItem('leaders'));
+    console.log('totalBoard after JSON', totalBoard)
 
-    if (leaderBoard.length > 10) {                       // ------------------ работает неправильно
-      totalBoard.shift();
-      totalBoard.push(steps);
-    } else {
-      totalBoard.push(steps);
+    totalBoard.push(steps);       // ------------ тут шляпа происходит
+    if (totalBoard.length > 10) {
+      let localTrim = totalBoard.shift();
+      console.log('localBoard over 10');
+      console.log('localBoard', localBoard);
     }
+
+    endGameMenu.classList.add('gameover');
     
+    console.log('totalBoard', totalBoard);
     localStorage.setItem('leaders', JSON.stringify(totalBoard));
+
+    return totalBoard;
   }
 }
 
-(function shuffleCards() {
+function shuffleCards() {
   cards.forEach(card => {
     let randPos = Math.floor(Math.random() * 12);
     card.style.order = randPos;
   });
-})();
+}
+
+function reload() {
+  location.reload();
+}
 
 cards.forEach(card => {
   card.addEventListener('click', flipCard);
 });
+
+newGameBtn.addEventListener('click', reload);
 // -----------------------------------------------------------------------------------------------
