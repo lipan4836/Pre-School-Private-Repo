@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
   <link rel="manifest" href="assets/favicon/site.webmanifest">
 </head>
-<body>
+<body onload="shuffleCards()">
   <div class="main-container">
     <header>
       <h1>find all waifus game</h1>
@@ -32,6 +32,11 @@
           <div class="tv__screen-gameicon pc-icons">
             <img src="assets/img/waifus/cover.png" alt="" class="game-icon">
             <p class="game-name">Waifu</p>
+          </div>
+          <div class="tv__screen-lastmenu">
+            <p class="win-text">Hooray!! You found them all!</p>
+            <p class="win-text">Your score is <span class="win-score">0</span></p>
+            <button class="win-btn">See you next time :3</button>
           </div>
           <div class="memory-container">
             <div class="memory-card" data-waifu="haruhi">
