@@ -12,8 +12,6 @@ const matchSound = new Audio('assets/sound/dsbl-cards.mp3');
 const endGameSound = new Audio('assets/sound/gameover.mp3');
 
 let gamesCounter = 0;
-let localBoard = [];
-let totalBoard = [];
 
 pcIcons[1].addEventListener('click', startGame);
 
@@ -60,7 +58,6 @@ function flipCard() {
 
 function checkingMatch() {
   steps += 1;
-  console.log('steps', steps);
   
   let isMatch = firstCard.dataset.waifu === secondCard.dataset.waifu;
 
@@ -74,7 +71,6 @@ function disableCards() {
   secondCard.removeEventListener('click', flipCard);
 
   openedCards = openedCards + 2;
-  console.log('openedCards', openedCards);
 
   resetBoard();
   gameOver();
@@ -98,27 +94,28 @@ function resetBoard() {
 
 function gameOver() {
   if (openedCards === 20) {
-    console.log('finish!!');
-
     endGameSound.play();
 
     scoreShow.textContent = `${steps}`;
-    totalBoard = JSON.parse(localStorage.getItem('leaders'));
-    console.log('totalBoard after JSON', totalBoard)
-
-    totalBoard.push(steps);       // ------------ тут шляпа происходит
-    if (totalBoard.length > 10) {
-      let localTrim = totalBoard.shift();
-      console.log('localBoard over 10');
-      console.log('localBoard', localBoard);
-    }
 
     endGameMenu.classList.add('gameover');
-    
-    console.log('totalBoard', totalBoard);
-    localStorage.setItem('leaders', JSON.stringify(totalBoard));
 
-    return totalBoard;
+    resultsToStorage();
+  }
+}
+
+function resultsToStorage() {
+  let gameResult = steps;
+  if (localStorage.getItem('gameResults') === null) localStorage.setItem('gameResults', JSON.stringify([]));
+
+  let results = JSON.parse(localStorage.getItem('gameResults'));
+  results.push(gameResult);
+
+  if (results.length > 10) {
+    let trimResults = results.slice(-10);
+    localStorage.setItem('gameResults', JSON.stringify(trimResults));
+  } else {
+    localStorage.setItem('gameResults', JSON.stringify(results));
   }
 }
 
