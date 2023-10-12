@@ -126,13 +126,23 @@ function shuffleCards() {
   });
 }
 
-function reload() {
-  location.reload();
+function startNewGame () {
+  steps = 0;
+  openedCards = 0;
+  lockBoard = false;
+  hasCardFlipped = false;
+  endGameMenu.classList.remove('gameover');
+  resetBoard();
+  cards.forEach(card => {
+    card.classList.remove('flip');
+    card.addEventListener('click', flipCard);
+  });
+  shuffleCards();
 }
 
 cards.forEach(card => {
   card.addEventListener('click', flipCard);
 });
 
-newGameBtn.addEventListener('click', reload);
+newGameBtn.addEventListener('click', startNewGame);
 // -----------------------------------------------------------------------------------------------
