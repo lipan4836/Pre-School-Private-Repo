@@ -3,8 +3,12 @@ const gameContainer = document.querySelector('.memory-container');
 const cards = document.querySelectorAll('.memory-card');
 const endGameMenu = document.querySelector('.tv__screen-lastmenu');
 const scoreShow = document.querySelector('.win-score');
+const resultsWindow = document.querySelector('.game-results');
+const ulList = document.querySelector('ul');
 
 const newGameBtn = document.querySelector('.win-btn');
+const resultsBtn = document.querySelector('.results-btn');
+const closeBtn = document.querySelector('.close-btn');
 
 // audio effects
 const clickSound = new Audio('assets/sound/click.mp3');
@@ -126,17 +130,35 @@ function shuffleCards() {
   });
 }
 
+function resultsList() {
+  resultsWindow.classList.add('gameover');
+  let resultsToShow = JSON.parse(localStorage.getItem('gameResults'));
+  resultsToShow.forEach((el) => {
+    const resultItem = document.createElement('li');
+    resultItem.textContent = el;
+    ulList.appendChild(resultItem);
+  });
+}
+
+function clearResultsLi() {
+  const allLi = document.querySelectorAll('li');
+  allLi.forEach((el) => el.remove());
+}
+
 function startNewGame () {
   steps = 0;
   openedCards = 0;
   lockBoard = false;
   hasCardFlipped = false;
+  gamesCounter += 1;
   endGameMenu.classList.remove('gameover');
+  resultsWindow.classList.remove('gameover')
   resetBoard();
   cards.forEach(card => {
     card.classList.remove('flip');
     card.addEventListener('click', flipCard);
   });
+  clearResultsLi();
   shuffleCards();
 }
 
@@ -145,4 +167,8 @@ cards.forEach(card => {
 });
 
 newGameBtn.addEventListener('click', startNewGame);
-// -----------------------------------------------------------------------------------------------
+resultsBtn.addEventListener('click', resultsList);
+closeBtn.addEventListener('click', () => {
+  resultsWindow.classList.remove('gameover');
+  clearResultsLi();
+});
