@@ -1,3 +1,14 @@
+console.log(`Вёрстка +10
+- реализован интерфейс игры +5
+- в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс +5
+Логика игры. Карточки, по которым кликнул игрок, переворачиваются согласно правилам игры +10
+Игра завершается, когда открыты все карточки +10
+По окончанию игры выводится её результат - количество ходов, которые понадобились для завершения игры +10
+Результаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой сохраняются результаты предыдущих 10 игр +10
+По клику на карточку – она переворачивается плавно, если пара не совпадает – обе карточки так же плавно переварачиваются рубашкой вверх +10
+Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10
+`);
+
 const pcIcons = document.querySelectorAll('.pc-icons');
 const gameContainer = document.querySelector('.memory-container');
 const cards = document.querySelectorAll('.memory-card');
@@ -14,6 +25,13 @@ const closeBtn = document.querySelector('.close-btn');
 const clickSound = new Audio('assets/sound/click.mp3');
 const matchSound = new Audio('assets/sound/dsbl-cards.mp3');
 const endGameSound = new Audio('assets/sound/gameover.mp3');
+
+// dark and light themes
+const body = document.getElementById('body');
+const dayTimeBtn = document.querySelector('.daytime-btn');
+const dayTimeImg = document.querySelector('.daytime-img');
+const themeElems = document.querySelectorAll('.theme');
+let dayTime = 'day';
 
 let gamesCounter = 0;
 
@@ -162,6 +180,28 @@ function startNewGame () {
   shuffleCards();
 }
 
+function dayOrNight() {
+  if (dayTime == 'day') {
+    body.classList.add('night');
+    dayTimeImg.src = 'assets/img/day.svg';
+    themeElems.forEach((el) => {
+      el.style.color = '#FBECB2'
+    });
+    dayTime = 'night';
+    return dayTime;
+  }
+
+  if (dayTime == 'night') {
+    body.classList.remove('night');
+    dayTimeImg.src = 'assets/img/night.svg';
+    themeElems.forEach((el) => {
+      el.style.color = '#000'
+    });
+    dayTime = 'day';
+    return dayTime;
+  }
+}
+
 cards.forEach(card => {
   card.addEventListener('click', flipCard);
 });
@@ -172,3 +212,4 @@ closeBtn.addEventListener('click', () => {
   resultsWindow.classList.remove('gameover');
   clearResultsLi();
 });
+dayTimeBtn.addEventListener('click', dayOrNight);
