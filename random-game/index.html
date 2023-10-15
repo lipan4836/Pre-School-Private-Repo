@@ -14,10 +14,13 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
   <link rel="manifest" href="assets/favicon/site.webmanifest">
 </head>
-<body onload="shuffleCards()">
+<body id="body" onload="shuffleCards()">
   <div class="main-container">
+    <button class="daytime-btn">
+      <img class="daytime-img" src="assets/img/night.svg" alt="day or night button">
+    </button>
     <header>
-      <h1>find all waifus game</h1>
+      <h1 class="theme">find all waifus game</h1>
     </header>
     <main>
       <div class="tv">
@@ -136,8 +139,8 @@
     </main>
     <footer>
       <a class="rss-link" href="https://rs.school/js-stage0/" target="_blank"></a>
-      <time class="year" datetime="2023-10">2023</time>
-      <a class="git-link" href="https://github.com/lipan4836" target="_blank">anton dmitriev</a>
+      <time class="year theme" datetime="2023-10">2023</time>
+      <a class="git-link theme" href="https://github.com/lipan4836" target="_blank">anton dmitriev</a>
     </footer>
   </div>
   <script src="script.js"></script>
